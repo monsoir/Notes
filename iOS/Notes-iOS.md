@@ -566,5 +566,48 @@ dispatch_async(queue, readingBlock8);
 2. 将指定的处理（如上面代码 writingBlock ）追加到并发队列上
 3. 并发队列等待 2. 中的任务结束后，再恢复为一般的操作（继续并发执行，如继续执行上面代码的 readingBlock5~8 ）
 
-因此，执行通过 `dispatch_barrier_async` 添加的任务，会暂停并发队列的并发特性，只执行改任务。
+- 因此，执行通过 `dispatch_barrier_async` 添加的任务，会暂停并发队列的并发特性，只执行改任务。
+- `dispatch_barrier_async` 同 `dispatch_queue_crate` 生成的并发队列一起使用
+
+### 同步执行
+
+#### dispatch_sync
+
+- 当任务 **同步** 追加到 Dispatch Queue 中并执行时，当前线程将暂停，等待任务的结束
+- 当需要任务处理结束之后立即使用所得到的结果时，则使用 `dispatch_sync`
+- 容易引发的 **死锁** 问题 
+	- 在主线程中执行以下代码
+
+		```objc
+		dispatch_queue_t mainQueue = dispatch_get_main_queue();
+		dispatch_sync(queue, ^{ /*Do something*/ });
+		```
+		
+		```objc
+		dispatch_queue_t mainQueue = dispatch_get_main_queue();
+		dispatch_async(mainQueue, ^{
+			dispatch_sync(mainQueue, ^{ /*Do something*/ });
+		});
+		```
+
+		1. 由于在主线程中同步追加任务，因此，主线程将会等待任务的完成
+		2. 然而，主线程正在执行上述代码，无法将任务追加到主线程中，于是造成死锁，卡死了
+
+	- 在串行分派队列中执行
+
+		```objc
+		dispatch_queue_t queue = dispatch_queue_create("com.xxx.xxx.yyy", NULL);
+		dispatch_async(queue, ^{ // Task 1
+			dispatch_sync(queue, ^{
+				/* Do something */ // Task 2
+			});
+		});
+		```
+		
+		- ![Screen Shot 2016-08-29 at 23.49.39.png](http://ww3.sinaimg.cn/large/801b780agw1f7b1wkjwt5j219k0i4wgs.jpg)
+
+	- 关于对死锁的更多例子与分析，[这个博客](http://www.superqq.com/blog/2015/10/16/five-case-know-gcd/) 很详细
+		- 分析重点就是，画出所设计的线程，并将对应的任务添加到相应的线程中，再进行可视化的分析，就很容易理解了
+		- 同时记住一点，一个 Block 就是一个任务
+
 
