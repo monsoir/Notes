@@ -411,7 +411,7 @@ dispatch_release(concurrentDispatchQueue);
 - 在 GCD 的 API 中，含有 `create` 的 API，需要在必要时通过 `dispatch_release` 进行释放
 - 通过函数或方法获取的 Dispatch Queue，有必要通过 `dispatch_retain` 进行持有，通过 `dispatch_release` 进行释放
 
-### 改变生成队列的优先级
+### 改变生成队列的优先级 dispatch_set_target_queue
 - 使用 `dispatch_queue_create` 生成的 Dispatch Queue 不管是串行还是并行，其优先级都为默认优先级
 - 通过 `dispatch_set_target_queue` 函数改变优先级
 
@@ -485,4 +485,86 @@ dispatch_time_t dispatchTimeByDate(NSDate *date) {
 - 通常用于计算绝对时间
 
 
+### 派遣组，同步多个队列 Dispatch Group
+
+>在 Dispatch Queue 中处理多个任务后最后执行结束操作，只需要使用一个 Serial Dispatch Queue，并将所有任务追加到该 Dispatch Queue 中。
+>但在使用 Concurrent Dispatch Queue 时，或同时使用多个 Dispatch Queue 时，我们应该使用 Dispatch Group。
+
+#### dispatch_group_async
+
+```objc
+// 1. 获得一个 并发队列
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+// 2. 创建一个派遣组
+dispatch_group_t group = dispatch_group_create();
+
+// 3. 对 group 进行监视，并将任务添加到 queue 中
+dispatch_group_async(group, queue, ^{/*block 1*/});
+dispatch_group_async(group, queue, ^{/*block 2*/});
+dispatch_group_async(group, queue, ^{/*block 3*/});
+
+// 4. 添加任务完成之后的处理，即最后一步
+dispatch_group_notify(group, dispatch_get_main_queue(), ^{/*Final task*/});
+
+// 5. 同样，dispatch group 也需要被释放，ARC 不负责释放 Dispatch Queue 和 Dispatch Group
+dispatch_release(group);
+```
+
+- 与 `dispatch_async` 一样，将任务追加到指定的 Dispatch Queue 中
+- 与 Dispatch Queue 一样，Block 通过 `dispatch_retain` 持有 Dispatch Group，由于 **ARC 不负责释放 Dispatch Queue 和 Dispatch Group**，因此任务派遣完毕后，需要手动释放
+
+#### dispatch_group_wait
+
+```objc
+// 1. 创建一个队列
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+// 2. 创建一个派遣组
+dispatch_group_t group = dispatch_group_create();
+
+// 3. 对 group 进行监视，并将任务添加到 queue 中
+dispatch_group_async(group, queue, ^{/*block 1*/});
+dispatch_group_async(group, queue, ^{/*block 2*/});
+dispatch_group_async(group, queue, ^{/*block 3*/});
+
+// 4. 等待所有任务结束
+dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+
+// 5. 同样，dispatch group 也需要被释放，ARC 不负责释放 Dispatch Queue 和 Dispatch Group
+dispatch_release(group);
+```
+
+- dispatch_group_wait
+	- 参数2: 等待的时间（超时），为 `disaptch_time_t` 类型，也参照上文来生成 `dispatch_time_t` 类型参数
+	- 返回结果
+		- 不为0: 经过了指定时间（返回的结果），但属于 Diapatch Group 的某一处理仍在进行中\
+		- 为0: 全部处理执行结束
+	- `DISPATCH_TIME_FOREVER` 超时时间等于此值时，`dispatch_group_wait` 恒返回0
+	- `DISPATCH_TIME_NOW` 不用等待即可判定 Dispatch Group 的处理是否执行结束
+	- 等待 wait 意味着
+		- 一旦调用 `dispatch_group_wait`，函数处于调用的状态而不返回，执行 `dispatch_group_wait` 函数的当前线程，在经过超时时间或 Dispatch Group 中的任务结束之前，都会停止
+
+### 解决并发队列中数据竞争的问题
+
+```objc
+dispatch_async(queue, readingBlock1);
+dispatch_async(queue, readingBlock2);
+dispatch_async(queue, readingBlock3);
+dispatch_async(queue, readingBlock4);
+
+dispatch_barrier_async(queue, writingBlock);
+
+dispatch_async(queue, readingBlock5);
+dispatch_async(queue, readingBlock6);
+dispatch_async(queue, readingBlock7);
+dispatch_async(queue, readingBlock8);
+```
+
+#### dispatch_barrier_async
+1. `dispatch_barrier_async` 函数会等待追加到并发队列上的并行执行的任务全部结束（如上面代码的  readingBlock1~4 ）
+2. 将指定的处理（如上面代码 writingBlock ）追加到并发队列上
+3. 并发队列等待 2. 中的任务结束后，再恢复为一般的操作（继续并发执行，如继续执行上面代码的 readingBlock5~8 ）
+
+因此，执行通过 `dispatch_barrier_async` 添加的任务，会暂停并发队列的并发特性，只执行改任务。
 
