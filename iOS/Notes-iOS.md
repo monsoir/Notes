@@ -278,6 +278,7 @@ static ShareInstanceClass *instance = nil;
 
 # 多线程
 [Link](http://www.infoq.com/cn/articles/os-x-ios-multithread-technology)
+[]()
 
 ### 使用 `performSelectors` 前缀的方法
 
@@ -610,4 +611,95 @@ dispatch_async(queue, readingBlock8);
 		- 分析重点就是，画出所设计的线程，并将对应的任务添加到相应的线程中，再进行可视化的分析，就很容易理解了
 		- 同时记住一点，一个 Block 就是一个任务
 
+
+### 队列的挂起 与 恢复 dispatch_suspend dispatch_resume
+
+使用情境：当 Dispatch Queue 追加了大量的任务后，希望不执行已追加的任务。
+
+#### dispatch_suspend
+- 挂起队列
+- `dispatch_suspend(theDispatchQueueToSuspend);`
+
+#### dispatch_resume
+- 恢复队列
+- `dispatch_resume(theDispatchQueueToResume);`
+
+---
+
+- 对已经执行的任务没有影响
+- 挂起后，theDispatchQueueToSuspend 中未执行的任务将会停止执行
+- 挂起后，只有恢复才使得任务继续执行
+
+### 线程同步的信号量 Dispatch Semaphore
+- 解决数据竞争的又一办法 
+- Dispatch Semaphore 适合用于更细粒度的排他控制，Serial Dispatch Queue 与 dispatch_barrier_async 随意
+
+```objc
+// 这个书上的例子，目的是为了安全地向 array 中添加数据
+
+// 将使用到系统提供的全局派遣队列
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+// 生成信号量，并设置计数起始值为1
+// 意味着：能访问 array 的线程，同时只能有1个
+dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+
+NSMutableArray *array = [[NSMutableArray alloc] init];
+
+for(int i = 0; i < 10000; i++) {
+	dispatch_async(queue, ^{
+	
+		// 一直等待，直到 semaphore 的值大于或等于1
+		// 一直等待，以为着：在这个任务中，这行代码以后的代码，将暂停执行
+		dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+		
+		/*
+			一直等待。。。。
+		*/
+		
+		// 突然，上面那行代码等待结束了，将会发生一下事情
+		// 1. semaphore 的计数值大于或等于1
+		// 2. 为了安全地执行后面的任务，semaphore 又被减去1
+		// 3. dispatch_semaphore_wait 等待结束，返回
+		
+		// 到了这个时候，semaphore 恒为0，当为0的时候，任务才能安全地执行
+		// 保证访问 array 的线程同时只有1个
+		
+		[array addObject:@(i)];
+		
+		// 啊，任务安全地完成了
+		// 将 array 释放给其他任务使用
+		// 将 semaphore += 1
+		
+		// 上面等待 semaphore 的值大于等于1，就是等这个时候了
+		dispatch_semaphore_signal(semaphore);
+		
+		// 如果存在其他任务是通过 dispatch_semaphore_wait 等待 semaphore >= 1 的
+		// 则，按照等待的顺序依次执行（最先等待的先执行）
+		
+		// 写了这么多，其实这个例子中的任务就3行代码。。。
+	});
+}
+
+/* ARC 里面，不用使用 dispatch_release(semaphore) 了
+	即使你想这么做，开着 ARC 的编译器也不让你这么做
+*/
+
+```
+
+- 例子属于大粒度了，Dispatch Semaphore 使用于更小的粒度，更加精细的控制
+- 信号量
+	- == 0 -> 等待
+	- >= 1 -> -=1 且 不等待，继续执行
+
+#### dispatch_semaphore_create(信号量起始值 n)
+- 用于生成信号量
+- 信号量起始值：同时能够有 n 个线程可以对某个对象进行安全的操作
+
+#### dispatch_semaphore_wait(dispatch_semaphore_t dsema, dispatch_time_t timeout)
+- 参数1: 生成的那个信号量了
+- 参数2: 同上面那些写的 dispatch_time_t 一样生成
+- 做了什么
+	- 等待 semaphore 的值等于大于1
+	- 对 semaphore 减1，并从 dispatch_semaphore_wait 返回
 
