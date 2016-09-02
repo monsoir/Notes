@@ -703,3 +703,103 @@ for(int i = 0; i < 10000; i++) {
 	- 等待 semaphore 的值等于大于1
 	- 对 semaphore 减1，并从 dispatch_semaphore_wait 返回
 
+# 事件的传递与响应
+
+[Link](http://www.jianshu.com/p/2e074db792ba)
+
+## 事件的产生与处理流程
+1. 触摸发生后，系统将该事件加入到 UIApplication 管理的事件队列中
+2. UIApplication 从事件队列中取出最前面的事件，将事件分发处理
+	- 首先接受到 UIApplication 事件分发的是 key window
+3. Key window 在视图层级结构中，找到一个最合适的视图来处理触摸事件
+	- 找到合适的视图控件后，调用视图控件的 touches 系列方法作具体处理
+
+## 事件的传递
+
+- 触摸事件的传递：父控件 -> 子控件
+- UIApplication -> key window -> 最适合处理事件的 View
+- **若父控件不能接受触摸事件，则子控件也不能接受触摸事件**
+
+### 寻找适合处理事件的控件过程
+1. 判断 key window 是否能接受触摸事件，不能接受就 gg 了
+2. 判断触摸点是否在自己（当前检验的 view）身上
+3. 在自己身上，就遍历子控件，找到最精准的那个
+	- 子控件数组中从后往前便利子控件，重复 1、2 步骤
+4. 精准地找到了控件 theView 后，把事件的处理交给 theView
+
+### 不能接受触摸事件
+- 不允许交互
+
+	```objc
+	userInteractionEnabled = NO;
+	```
+
+- 隐藏，父控件的隐藏会带动子控件的隐藏
+- 透明度 0.0<alpha<0.01，父控件的透明度会带动子控件的透明度
+
+### 寻找最合适的 view 原理
+
+两个方法
+- `- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event`
+- `- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event`
+
+#### - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+
+- 调用时机：只要事件传递给一个控件，该控件就会调用自身的 hitTest:withEvent: 方法
+- 作用：寻找能处理响应事件最合适的那个 view
+- 不管**控件能不能处理事件**，不管**触摸点在不在这个控件上**，事件都会传递到这个控件上，并调用 hitTest:withEvent: 方法
+- 返回 nil：说明该方法的控件即其子控件都不是最合适的 view，或者找不到最合适的 view，这也说明，调用该方法控件的**父控件**是最合适的 view
+
+##### 事件拦截处理
+- 鉴于 hitTest:withEvent: 方法的作用，可以通过重写该方法来返回指定的 view 来作为最适合处理事件的 view 
+- 建议在 **在父控件中的 hitTest:withEvent: 中返回子控件最合适的 view**
+
+
+#### - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+
+- 判断点 在不在当前 view 上（方法调用者的坐标系上）
+- 返回 NO，点不在方法调用者的坐标系上，方法的调用者也不能处理事件
+
+## 事件的响应
+
+触摸事件处理过程
+1. 触摸产生触摸事件，通过上面的讲述，找到了最合适处理事件的 theView
+2. 调用 theView 的 touches 系列方法
+
+- touches 系列方法的**默认实现**是默认不处理事件，并将事件顺着响应者链向上传递，交给上一个响应者处理，即
+
+```objc
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{ 
+	[super touchesBegan:touches withEvent:event]; 
+}
+```
+
+### 响应者链
+
+- 多个响应者对象连接起来的链条，响应者对象是继承于 UIResponder 的对象
+- 若 theView 是 ViewController 的 view，则 ViewController 是上一个响应者
+- 若 theView 不是 ViewController 的 view，则 theView.superView 是上一个响应者
+
+```plain
+Condition 1: theView -> ViewController -> (theView.superView -> 
+SuperViewController) -> ... -> window -> UIApplication -> DISCARD
+
+Condition 2: theView -> theView.superView -> ... -> window -> UIApplication -> DISCARD
+```
+
+### 一个事件多个响应对象处理
+
+```objc
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{ 
+	// Do something to deal with the touch.
+	NSLog(@"do somthing...");
+	
+	// Pass the event to the next responder.
+	[super touchesBegan:touches withEvent:event]; 
+}
+```
+
+事件的传递：由父控件到子控件
+事件的响应：由子控件到父控件
+
+
