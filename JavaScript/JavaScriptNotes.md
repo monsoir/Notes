@@ -60,3 +60,189 @@ a();
 
 - 作用域的生命周期，使用引用计数（存在循环引用的问题）与标记清除（已经都使用这个了）
 
+
+# 引用类型
+
+## 创建 Object 实例的方法
+
+### 1. new
+
+```js
+var person = new Object();
+person.name = "Monsoir";
+person.age = 22;
+```
+
+### 2. 对象字面量
+
+- 不会调用 Object 构造函数
+
+```js
+var person = {
+	name: "Monsoir",
+	age: 22
+};
+```
+
+```js
+var person = {
+	"name": "Monsoir",
+	"age": 29,
+	5: true // 数值属性自动转换为字符串
+};
+```
+
+# Array 类型
+
+## 创建数组的基本方式
+
+### Array 构造函数
+
+```js
+var colors = new Array();
+var colors = new Array(20);
+var colors = new Array("red", "blue", "green");
+
+// 省略 new 
+var colors = Array();
+var colors = Array(20);
+var colors = Array("red", "blue", "green");
+```
+
+### 字面量
+
+```js
+var colors = ["red", "blue", "green"];
+var colors = [];
+```
+
+## 索引
+
+- 通过索引访问数组中的对象
+	- 小于 Array.length，返回对应的值
+	- 大于等于 Array.length，自动增加到该索引的长度
+	- 没有则返回 `undefined`
+- 通过设置 Array.length 在数组末尾移除或添加项
+	- 新添加的项，若没有值，则置为 `undefined`
+
+## 检测对象是否为数组
+
+```js
+if (Array.isArray(value)) {
+	// Do something if value is an array.
+}
+```
+
+## 转换方法
+
+### toLocaleString()
+- 创建一个数组值的以**逗号**分隔的字符串
+- 调用数组中每一项的 `toLocaleString()` 方法
+
+### toString()
+- 返回由数组中每个值的字符串形式拼接而成的一个已**逗号**分割的字符串
+- 调用数组中每一项的 `toString()` 方法
+
+### valueOf()
+- 返回数组本身
+
+## 栈方法
+
+### push()
+- 接受任意个参数，并将它们逐个添加到数组末尾
+- 修改数组长度
+
+### pop()
+- 从数组末尾移除最后一项
+- 修改数组长度
+
+## 队列方法
+
+### shift()
+- 移除数组中的第一项，并返回该项
+- 修改数组长度
+- 结合 `push()`，模拟队列操作
+
+### unshift()
+- 在数组前端添加任意项，并返回新数组的长度
+- 结合 `pop()`，模拟相反方向的队列操作
+
+## 重排序方法
+- 返回经排序后的数组
+
+### reverse()
+- 反转数组项的顺序
+
+### sort()
+- 升序排序，最小在前，最大在后
+- **默认**调用每个数组项的 `toString()`，比较得到的字符串
+
+```js
+var values = [0, 1, 5, 10, 15];
+values.sort();
+alert(values); // 0, 1, 10, 15, 5
+```
+
+- 可以接收一个 比较函数 作为参数，来确定数组项的排序位置
+
+```js
+// Define a compare function
+function compare(value1, value2) {
+	if (value1 < value2) {
+		return -1;
+	} else if (value1 > value2) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+// Invoke the compare function
+var values = [0, 1, 5, 10, 15];
+values.sort(compare);
+alert(values); // 0, 1, 5, 10, 15
+```
+
+## 操作方法
+
+### concat()
+- 创建当前数组的一个副本，将接收到参数添加到副本的末尾，返回新构建的数组
+- 没有参数，复制当前数组并返回副本
+- 参数为一个或多个数组，将数组每一项添加到副本，并返回副本
+
+### slice()
+- 基于当前数组中的一个或多个项，创建一个新数组
+- 参数：下标1 -> 指定位置的开始位置，下标2 -> 指定位置的结束位置
+
+```js
+var colors = ["red", "green", "blue", "yellow", "purple"];
+var colors2 = colors.slice(1); // green,blue,yellow,purple
+var colors3 = colors.slice(1, 4); // green,blue,yellow
+```
+
+### splice()
+- 删除
+	- splice(startIndex, countOfItemsToDelete)
+	
+	```js
+	// 删除数组前两项
+	var resultArray = originArray.splice(0,2);
+	```
+
+- 插入
+	- splice(startIndex, 0<countOfItemsToDelete>, ...<items to insert>)
+
+	```js
+	// 从数组的位置2开始插入字符串 "red" 和 "green"
+	var resultArray - originArray.splice(2, 0, "red", "green")
+	```
+
+- 替换
+	- splice(startIndex, countOfItemsToBeReplaced, ...<newItems>)
+
+	```js
+	// 删除数组位置2开始的一个项，并从位置2开始添加 "red", "green"
+	var resultArray = originArray(2, 1, "red", "green");
+	```
+
+
