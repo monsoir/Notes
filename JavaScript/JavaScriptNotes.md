@@ -246,3 +246,131 @@ var colors3 = colors.slice(1, 4); // green,blue,yellow
 	```
 
 
+## 迭代方法
+
+- 5个
+	- every() 对数组中的每一项运行函数，若函数对 **每一项** 都返回 true，则返回 true
+	- some() 对数组中的每一项运行函数，若函数对 **任一项** 返回 true，则返回 true
+	- filter() 对数组中的每一项运行函数，返回一个数组，该数组由对函数响应为 true 的项构成
+	- forEach() 对数组中的每一项运行函数，没有返回值
+	- map() 对数组中的每一项运行函数，返回每次函数调用结果组成的数组
+- 可传入两个参数
+	1. 应用到每一项的函数
+	2. 运行参数函数的作用域对象－－影响 `this` 的值，**可选**
+- 参数函数的3个参数
+	1. 数组项的值
+	2. 该项在数组中的位置
+	3. 数组对象本身
+- 参数函数的返回值 **可能也可能不** 影响方法的返回值
+
+```js
+var number = [1,2,3,4,5,4,3,2,1];
+
+var everyResult = numbers.every(function(item, index, array){
+	return item > 2;
+});
+alert(everyResult); // false
+
+var someResult = numbers.some(function(item, index, array){
+	return item > 2;
+});
+alert(someResult); // true
+
+var filterResult = numbers.filter(function(item, index, array){
+	return item > 2;
+});
+alert(filterResult); // [3,4,5,4,3]
+
+var mapResult = numbers.map(function(item, index, array){
+	return item * 2;
+});
+alert(mapResult); // [2,4,6,8,10,8,6,4,2]
+```
+
+## 归并方法
+
+- 归并数组的方法，迭代数组的所有项，然后构建一个最终返回值
+	- reduce() 从数组第一项开始遍历
+	- reduceRight() 从数组最后一项开始遍历
+- 可传入2个参数
+	- 在每一项上调用的函数
+	- 作为归并基础的初始值，**可选**
+- 参数函数的参数
+	1. 前一个值
+	2. 当前值
+	3. 项的索引值
+	4. 数组对象
+- 参数函数返回的任何值都会作为第一个参数自动传给下一项
+- 第一次迭代发生在数组的第二项上
+
+```js
+var values = [1,2,3,4,5];
+var sum = values.reduce(function(prev, cur, index, array){
+	return prev + cur;
+});
+alert(sum); // 15
+```
+
+# Function 类型
+
+- 推荐使用赋值的方式定义函数
+- 没有重载
+
+## 内部属性
+
+### arguments
+- 类数组对象
+- 包含传入函数中的所有参数
+- 含有 `callee` 属性，这是一个指针，指向拥有这个 `arguments` 对象的函数
+
+```js
+function factorial(num) {
+	if (num <= 1) {
+		return 1;
+	} else {
+		return num * factorial(num - 1); // 函数的执行与函数名耦合了！
+	}
+}
+
+function factorial(num) {
+	if (num <= 1) {
+		return 1;
+	} else {
+		return num * argument.callee(num - 1); // 使用 callee 解耦
+	}
+}
+```
+
+### this
+- 函数执行的环境对象
+
+```js
+function sayColor() {
+	alert(this.color);
+}
+
+sayColor(); // this 指向的环境为全局环境，即 window
+
+var o = {color: "blue"};
+o.sayColor = sayColor;
+o.sayColor(); // this 指向 o 的环境
+```
+
+### caller
+
+- 保存着调用当前函数的函数的引用
+- 在全局作用域中调用当前函数，caller 为 null
+
+```js
+function outer() {
+	inner();
+}
+
+function inner() {
+	alert(arguments.callee.caller);
+}
+
+outer(); // 显示 outer() 函数的源代码
+```
+
+
