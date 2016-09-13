@@ -374,3 +374,37 @@ outer(); // 显示 outer() 函数的源代码
 ```
 
 
+# 基本包装类型
+
+每读取一个基本类型值时，后台会创建一个对应的基本包装类型的对象，从而使我们能调用一些方法来操作这些数据。如：Boolean, Number, String
+
+```js
+var s1 = "Some text"; // 基本类型
+var s2 = s1.substring(2); // 后台创建一个对象，处于读取模式
+
+// 实际上系统的操作类似于
+var s1 = "Some text";
+var s1 = new String("Some text"); // 隐藏操作
+var s2 = s1.substring(2);
+s1 = null; // 隐藏操作
+
+1. 创建 String 类型的实例
+2. 在实例上调用指定的方法
+3. 销毁实例
+
+```
+
+使用 `new` 创建的引用类型的实例，在执行流离开当前作用域前，一直保存在内存中
+自动创建的基本包装类型，存在于一行代码的执行瞬间（隐藏操作），然后立即被销毁
+
+使用 `new` 调用基本包装类型的**构造函数**，与直接调用同名的**转型函数**是不一样的
+
+```js
+var value = "25";
+var number = Number(value); // 转型函数
+alert(typeof number); // --> "number"
+
+var obj = new Number(value); // 构造函数
+alert(typeof obj); // --> "Object"
+```
+
