@@ -55,3 +55,9 @@ po [<view> recursiveDescription]
 		```
 
 
+### 添加系统不自带字体
+
+1. 网上搜索字体文件 (*.ttf/ *.odf)
+2. 将字体文件导入到工程
+3. Info.plist -> 添加 key `UIAppFonts`，类型为 Array，值为 [字体名称].ttf
+
