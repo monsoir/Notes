@@ -1,2 +1,4 @@
 # Electron
 
+### [Installation](./Installation.md)
+
