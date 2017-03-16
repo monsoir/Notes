@@ -1,5 +1,5 @@
 # Article List
 
-### [Blog](./Blog List.md)
-### [Articles](./Article List.md)
+### [Blog](./Blog%20List.md)
+### [Articles](./Article%20List.md)
 
