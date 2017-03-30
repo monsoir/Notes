@@ -13,7 +13,7 @@
 ### [Electron](./Electron/Index.md)
 ### [Article list](./Articles/Index.md)
 ### [HTTP](./HTTP/Index.md)
-### [brew](./brew/Index.md)
+### [Homebrew](./Homebrew/Index.md)
 ### [JSON](./JSON/JSON.md)
 
 

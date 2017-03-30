@@ -18,6 +18,8 @@
 
 - [定制自己的个性python爬虫](https://zhuanlan.zhihu.com/p/23178014)
 
+- [12个Python项目教程](https://mp.weixin.qq.com/s?__biz=MjM5Njc0MjIwMA==&mid=2649641430&idx=2&sn=db49170d655909b865811f635d2310ab&chksm=befe64818989ed977a82aba0ca11446b912ee50a40e06b25e159de231938ab3bf1054110f015&scene=0&key=0c81d64498303af4f39205fa38a440076973310fa5da6e0b666f5fe36323701baeb5e293d50e9bb270a6bbd627c86e98202b524bc73e42b82ed176764912f8b0b2a3de8d44ee5092de8519f5eda44be9&ascene=0&uin=OTQ0NjA4NDMy&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12.3+build(16D32)&version=12020110&nettype=WIFI&fontScale=100&pass_ticket=%2Bae%2FJ35tg2vePQFOu3a8U0B0ntOYUm%2BoChs6%2FViR5478v%2FsZRcXXTFvInfdaxaZN)
+
 #### iOS
 
 - [iOS字体相关知识](http://www.cocoachina.com/ios/20150812/12938.html)
