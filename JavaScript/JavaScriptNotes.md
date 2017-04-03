@@ -432,3 +432,30 @@ alert(typeof obj); // --> "Object"
 ### window 对象
 通过 window 对象来方法 Global 对象的属性和函数
 
+## Function.prototype.bind()
+
+> bind() 会创建一个新函数。当这个新函数被调用时，bind() 的 1st 参数将作为函数运行时的 this，之后的一序列参数，将作为函数的参数传入
+
+
+### 用法
+
+#### 创建绑定函数
+
+```js
+this.x = 9;
+var module = {
+	x: 81,
+	getX: function() { return this.x; }
+};
+
+module.getX(); // 81
+
+var retrieveX = module.getX;
+retrieveX(); // 9，this 指向了全局作用域
+
+
+var boundGetX = retrieveX.bind(module); // module 作为 retrieveX 运行时的 this
+boundGetX(); // 81，x 被绑定到 module 对象中的 x
+
+```
+
