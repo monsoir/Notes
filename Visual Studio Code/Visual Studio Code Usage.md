@@ -14,4 +14,14 @@
 	- 比如：在 Python 的 Virtual Environment 中打开 VSC，便会将当前 Python 的执行环境带到 VSC 中
 
 
+## React Native
+
+### 开启／关闭 React-packager
+
+⌘ + ⇧ + P -> react native: start packager / react native stop packager
+
+### 运行在 iOS 上
+
+⌘ + ⇧ + P -> react native: Run iOS
+
 
