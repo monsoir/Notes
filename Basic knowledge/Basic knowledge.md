@@ -1,0 +1,50 @@
+# Basic knowledge
+
+[TOC]
+
+## 基本单位
+
+### bit
+
+位，1 bit 代表一个 二进制位
+
+### Byte
+
+字节，1 Byte = 8 bits
+
+内存按照字节寻址
+
+### word
+
+字，与架构有关
+
+64位 CPU，64位指的是字长，即 CPU 一次能运算的数据长度，64位 CPU，即一次运算 64 个二进制位
+
+### 运营商声称的带宽与实际的带宽 
+
+#### 运营商声称的带宽 100M
+
+实际上，单位是 100Mbps，这里的 b 指的是 bit，即一个二进制位
+
+#### 实际的带宽
+
+我们平常说的带宽，以我们下载文件为例，使用的单位是 MB，这里的 B 是 Byte，即字节
+因此，换算过来 100Mbps / 8 = 12.5MBps (1 Byte = 8 bits)
+
+## 基本数据类型
+
+64 位下的机器
+
+类型 | 占用空间 | 备注
+---- | ------- | ----
+char | 1 Byte  |
+char * | 8 Bytes | 64 位的寻址空间是 2^64，有 64 bits，即有 64 / 8 = 8 Bytes
+short int | 2 Bytes | 
+int | 4 Bytes | 
+unsigned int | 4 Bytes
+float | 4 Bytes | 
+double | 8 Bytes | 
+long | 8 Bytes | 
+long long | 8 Bytes | 
+unsigned long | 8 Bytes | 
+
