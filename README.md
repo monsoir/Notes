@@ -37,7 +37,7 @@
 ### [Python](https://github.com/Monsoir/Notes/blob/master/Python/index.md)
 
 ## R
-### [React](./React/React%20Start%20Memo.md)
+### [React (Native)](./React/Index.md)
 
 ## V
 ### [Visual Studio Code](./Visual%20Studio%20Code/Visual%20Studio%20Code%20Usage.md)
