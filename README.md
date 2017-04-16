@@ -40,7 +40,7 @@
 ### [React (Native)](./React/Index.md)
 
 ## V
-### [Visual Studio Code](./Visual%20Studio%20Code/Visual%20Studio%20Code%20Usage.md)
+### [Visual Studio Code](./Visual%20Studio%20Code/Index.md)
 
 ## X
 ### [Xcode](./Xcode/Xcode.md)
