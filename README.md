@@ -6,7 +6,8 @@
 ### [AngularJS](https://github.com/Monsoir/Notes/blob/master/AngularJS/Best%20Practice.md)
 ### [Article list](./Articles/Index.md)
 
-### [Basic knowledge](./Basic%20knowledge.md)
+## B
+### [Basic knowledge](./Basic%20knowledge/Index.md)
 
 ## D
 ### [Docker](./Docker/Docker%20base%20base%20usage.md)
