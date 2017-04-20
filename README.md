@@ -32,7 +32,7 @@
 
 ## M
 ### [Mac](https://github.com/Monsoir/Notes/blob/master/Mac/Mac.md)
-### [MySQL](./MySQL/Command.md)
+### [MySQL](./MySQL/Index.md)
 
 ## P
 ### [Python](https://github.com/Monsoir/Notes/blob/master/Python/index.md)
