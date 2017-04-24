@@ -9,6 +9,9 @@
 ## B
 ### [Basic knowledge](./Basic%20knowledge/Index.md)
 
+## C
+### [Chrome](./Chrome/Index.md)
+
 ## D
 ### [Docker](./Docker/Docker%20base%20base%20usage.md)
 
@@ -27,7 +30,7 @@
 ### [iOS](https://github.com/Monsoir/Notes/blob/master/iOS/index.md)
 
 ## J
-### [JavaScript](https://github.com/Monsoir/Notes/blob/master/JavaScript/JavaScriptNotes.md)
+### [JavaScript](./JavaScript/Index.md)
 ### [JSON](./JSON/JSON.md)
 
 ## M
