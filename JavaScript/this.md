@@ -17,7 +17,7 @@
 
 严格模式下，this 为 `undefined`，否则，会默认为 `window`
 
-## 对象中的 this
+## 对象中的this
 
 ### 函数在对象中定义
 
@@ -45,7 +45,7 @@ o.sayColor = sayColor; // 已经将外面（全局）的 sayColor 中的 this �
 o.sayColor(); // blue
 ```
 
-## 构造函数中的 this
+## 构造函数中的this
 
 ```js
 function person() {
@@ -58,7 +58,7 @@ console.log(o.name);
 
 关键字 `new` 会调用构造函数，这里也就是调用了函数的构造函数，新建了一个函数对象，同时，this 也指向了这个函数对象
 
-## apply, call
+## apply,call
 
 apply 和 call 用途都是在特定的作用域中调用函数，即设置函数体内的 this
 
@@ -128,7 +128,7 @@ var object = sayColor.bind(o); // sayColor 的 this 已经被绑定到 o 中
 object.sayColor(); // blue
 ```
 
-## 闭包中的 this
+## 闭包中的this
 
 闭包中的 this, 是基于运行时函数的执行环境的对象，在全局函数中，this -> window, 作为对象的方法，this -> 那个对象
 
@@ -163,7 +163,7 @@ console.log(o.sayColor()()); // blue
 
 在上面，o.sayColor() 返回一个函数对象，之后再来一个 ()，返回的这个函数实例中，函数体中提前将 this 保存为指向对象的 this
 
-## 箭头函数中的 this
+## 箭头函数中的this
 
 箭头函数中的 this，指向的，就是定义时所在的对象，而不是使用时的对象
 
