@@ -1,6 +1,10 @@
-[TOC]
-
 # ARC
+
+- [属性声明与所有权修饰符的对应关系](#属性声明与所有权修饰符的对应关系)
+- [ARC的实现](#ARC的实现)
+	- [__strong](#__strong)
+	- [__weak](#__weak)
+	- [__autoreleasing](#__autoreleasing)
 
 ## 属性声明与所有权修饰符的对应关系
 
@@ -13,7 +17,7 @@ strong | __strong
 unsafe_unretained | __unsafe__unretained
 weak | __weak
 
-## ARC 的实现
+## ARC的实现
 
 ### __strong
 

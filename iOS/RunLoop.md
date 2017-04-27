@@ -1,5 +1,14 @@
 # [RunLoop](http://blog.ibireme.com/2015/05/18/runloop/)
 
+- [RunLoop概述](#RunLoop概述)
+- [RunLoop与线程](#RunLoop与线程)
+- [RunLoop对外的接口](#RunLoop对外的接口)
+- [RunLoop的Mode](#RunLoop的Mode)
+- [RunLoop内部逻辑](#RunLoop内部逻辑)
+- [Apple使用RunLoop实现的功能](#Apple使用RunLoop实现的功能)
+
+## RunLoop概述
+
 - 广义的 Event Loop
 	- 管理事件／消息
 	- 让线程在没有处理消息时休眠避免资源占用、在有消息到来时立刻被唤醒
@@ -14,7 +23,7 @@
 		- 基于 CFRunLoopRef 的封装
 		- 提供面向对象的 API，这些 API ==不是线程安全== 的
 
-### RunLoop 与 线程
+## RunLoop与线程
 
 - 两种线程对象，一一对应
 	- pthread_t
@@ -28,7 +37,7 @@
 	- RunLoop 的创建发生在第一次获取时，销毁发生在线程结束
 	- ==只能== 在一个线程的内部获取其 RunLoop（主线程除外）
 
-### RunLoop 对外的接口
+## RunLoop对外的接口
 
 - CoreFoundation 中关于 RunLoop 的类
 	- CFRunLoopRef
@@ -70,7 +79,7 @@
 	- RunLoop 状态发生变化时，观察者通过回调接受这个变化
 
 
-### RunLoop 的 Mode
+## RunLoop的Mode
 
 > struct __CFRunLoopMode {
     CFStringRef _name;            // Mode Name, 例如 @"kCFRunLoopDefaultMode"
@@ -96,11 +105,11 @@
 	- kCFRunLoopDefaultMode(NSDefaultRunLoopMode)
 	- UITrackingRunLoopMode
 
-### RunLoop 内部逻辑
+## RunLoop内部逻辑
 
 ![](http://blog.ibireme.com/wp-content/uploads/2015/05/RunLoop_1.png)
 
-### Apple 使用 RunLoop 实现的功能
+## Apple使用RunLoop实现的功能
 
 - 系统默认注册的5个Mode
 	1. kCFRunLoopDefaultMode -> App 的默认 Mode，主线程运行在这个 Mode 中
