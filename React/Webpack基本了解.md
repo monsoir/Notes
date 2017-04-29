@@ -3,17 +3,17 @@
 [From](https://www.qianduandao.com)
 
 - [核心概念](#核心概念)
-	- [入口Entry](#入口Entry)
-	- [出口Output](#出口Output)
-	- [加载器Loaders](#加载器Loaders)
-	- [插件Plugins](#插件Plugins)
+	- [入口Entry](#入口entry)
+	- [出口Output](#出口output)
+	- [加载器Loaders](#加载器loaders)
+	- [插件Plugins](#插件plugins)
 - [配置webpack-dev-server并启用热模块替换](#配置webpack-dev-server并启用热模块替换)
 	- [本地安装webpack-dev-server](#本地安装webpack-dev-server)
-	- [使用NodeAPI来启动webpack-dev-server](#使用NodeAPI来启动webpack-dev-server)
-- [添加Loaders](#添加Loaders)
-	- [添加babel-loader，用于将ES6,ES7转换为ES5模块](#添加babel-loader，用于将ES6,ES7转换为ES5模块)
-	- [添加sass-loader,将SASS文件转译成CSS的Loader](#添加sass-loader,将SASS文件转译成CSS的Loader)
-- [React脚手架](#React脚手架)
+	- [使用NodeAPI来启动webpack-dev-server](#使用nodeapi来启动webpack-dev-server)
+- [添加Loaders](#添加loaders)
+	- [添加babel-loader，用于将ES6,ES7转换为ES5模块](#添加babel-loader，用于将es6,es7转换为es5模块)
+	- [添加sass-loader,将SASS文件转译成CSS的Loader](#添加sass-loader,将sass文件转译成css的loader)
+- [React脚手架](#react脚手架)
 
 ## 核心概念
 
