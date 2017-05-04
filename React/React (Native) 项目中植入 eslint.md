@@ -2,8 +2,8 @@
 
 - [安装eslint](#安装eslint)
 - [安装依赖](#安装依赖)
-- [创建.eslintrc.js](#创建.eslintrc.js)
-- [Reference](#Reference)
+- [创建.eslintrc.js](#创建eslintrcjs)
+- [Reference](#reference)
 
 ## 安装eslint
 
