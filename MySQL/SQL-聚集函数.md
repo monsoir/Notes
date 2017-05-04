@@ -6,13 +6,13 @@
 - 做什么
 	- 对某些行运行的函数，计算并返回一个值
 
-- [SQL 聚集函数们](#sql聚集函数们)
-- [AVG()](#avg())
-- [COUNT()](#count())
-- [MAX()](#max())
-- [MIN()](#min())
-- [SUM()](#sum())
-- [DISTINCT()](#distinct())
+- [SQL聚集函数们](#sql聚集函数们)
+- [AVG()](#avg)
+- [COUNT()](#count)
+- [MAX()](#max)
+- [MIN()](#min)
+- [SUM()](#sum)
+- [DISTINCT()](#distinct)
 - [使用多个聚集函数](#使用多个聚集函数)
 
 ## SQL 聚集函数们

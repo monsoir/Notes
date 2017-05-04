@@ -3,7 +3,7 @@
 ## [SQL-过滤](./SQL-过滤.md)
 ## [SQL-计算字段](./SQL-计算字段.md)
 ## [SQL-函数](./SQL-函数.md)
-## [SQL-聚集函数](./聚集函数.md)
+## [SQL-聚集函数](./SQL-聚集函数.md)
 
 # Reference
 
