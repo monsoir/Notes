@@ -5,6 +5,7 @@
 ## [SQL-函数](./SQL-函数.md)
 ## [SQL-聚集函数](./SQL-聚集函数.md)
 ## [SQL-分组数据](./SQL-分组数据.md)
+## [SQL-使用子查询](./SQL-使用子查询.md)
 
 # Reference
 
