@@ -15,7 +15,7 @@
 	- [.parent 和 .parents](#parent-和-parents)
 	- [获取属性](#获取属性)
 	- [使用 Lambda 表达式过滤](#使用-lambda-表达式过滤)
-- [BeautifulSoup 的常见对象](beautifulsoup-的常见对象)
+- [BeautifulSoup 的常见对象](#beautifulsoup-的常见对象)
 - [Extra](#extra)
 
 ## 配置环境
