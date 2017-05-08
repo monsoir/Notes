@@ -43,4 +43,27 @@ git remote set-url origin <new url>
 git remote -v
 ```
 
+### 查看 commit 记录
+
+```shell
+git log
+
+# 打印出一行的格式
+git log --pretty=oneline
+```
+
+### 回退版本
+
+```shell
+# 回退到上一个版本
+git reset --hard head^
+
+## 回退到上上一个版本
+git reset --hard head^^
+
+# 回退到往上100个版本
+git reset --hard head^^^^...(100 个 ^)
+# 或者
+git reset --hard head~100
+```
 
