@@ -59,11 +59,38 @@
 
 这里假设 Android SDK 等的设置已经完成
 
+### 修改 GenyMotion 上的 adb 路径
+
 在上面的 Add Configuration 一样，添加 Debug Android 选项，直接点击 Debug 运行的话，会出现 `adb command not found` 之类的错误，这里需要设置 GenyMotion 的模拟器设置
 
 ![](http://ww4.sinaimg.cn/large/006tNc79ly1ffdxpk0885j31861040xw.jpg)
 
 需要设置 Android SDK 的路径
+
+### 修改用户环境变量
+
+
+之后还要在 用户目录 `~` 下，修改或新建一个 .bash_profile，来改变当前系统用户的环境变量，添加 Android adb 工具的路径
+
+```shell
+export PATH=${PATH}:~/Library/Android/sdk/platform-tools
+```
+
+然后，在 `~` 中运行命令，让环境变量的修改生效
+
+```shell
+source .bash_profile
+```
+
+新建窗口，可使用新的环境变量
+
+同时，可以查看 `$PATH` 来检验环境变量修改是否生效
+
+```shell
+echo $PATH
+```
+
+### 其他的一些问题
 
 设置完成之后，点击 Debug 运行，会出现警告，之后界面运行不正常
 
