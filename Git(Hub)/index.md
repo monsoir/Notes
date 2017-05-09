@@ -1,4 +1,5 @@
 # Git(Hub) Index
 
-### [command usage](https://github.com/Monsoir/Notes/blob/master/Git(Hub)/command%20usage.md)
+## [command usage](https://github.com/Monsoir/Notes/blob/master/Git(Hub)/command%20usage.md)
+## [规范 Git 提交信息](./规范%20Git%20提交信息.md)
 
