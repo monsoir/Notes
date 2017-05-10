@@ -235,9 +235,11 @@ tuples = zip(*([iter(flat)] * c))
 
 ##### Reference
 
-[参考1: http://blog.csdn.net/zhu_liangwei/article/details/7967237](http://blog.csdn.net/zhu_liangwei/article/details/7967237)
-[参考2 Stack Overflow 一言惊醒梦中人: http://stackoverflow.com/a/30380585/5211544](http://stackoverflow.com/a/30380585/5211544)
-[参考3 Stack Overflow 迭代过程: http://stackoverflow.com/a/2233827/5211544](http://stackoverflow.com/a/2233827/5211544)
+参考1: [http://blog.csdn.net/zhu_liangwei/article/details/7967237](http://blog.csdn.net/zhu_liangwei/article/details/7967237)
+
+参考2: [Stack Overflow 一言惊醒梦中人: http://stackoverflow.com/a/30380585/5211544](http://stackoverflow.com/a/30380585/5211544)
+
+参考3: [Stack Overflow 迭代过程: http://stackoverflow.com/a/2233827/5211544](http://stackoverflow.com/a/2233827/5211544)
 
 ## map
 
