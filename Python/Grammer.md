@@ -6,6 +6,7 @@
 - [iter](#iter)
 - [zip](#zip)
 - [map](#map)
+- [deque](#deque)
 
 ## 格式化输出
 
@@ -261,4 +262,18 @@ map(list, tuples)
 
 为 tuples 中的每个元素，调用 list 方法，将每个元素转为 list 类型
 
+
+## deque
+
+[官方说明文档](https://docs.python.org/2/library/collections.html#collections.deque)
+
+deque 可以同时用作栈(stack) 和 队列(queue) "double-ended queue" 的缩写
+
+虽然 list 也可以实现栈的功能，但是 deque 的效率更优
+
+使用时，需要
+
+```py
+from collections import deque
+```
 
