@@ -4,11 +4,11 @@
 
 方法参照 [create-react-app 的官方文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages)
 
-- [配置 package.json](#配置-package.json)
+- [配置 package.json](#配置-packagejson)
 - [安装 gh-pages 并配置发布脚本](#安装-gh-pages-并配置发布脚本)
 - [发布](#发布)
 - [确认代码分支](#确认代码分支)
-- [哦，对了](#哦，对了)
+- [哦，对了](#哦对了)
 
 > 必要条件：react-scripts 版本需在 0.2.0 或以上
 
