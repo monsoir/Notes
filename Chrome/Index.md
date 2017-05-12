@@ -1,4 +1,4 @@
-# Index
+# Chrome
 
 ## [Plugins](./Plugins.md)
 

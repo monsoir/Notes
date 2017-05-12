@@ -1,4 +1,4 @@
-# Index
+# Homebrew
 
 ### [node.js](./nodejs.md)
 

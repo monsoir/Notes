@@ -1,4 +1,4 @@
-# Python Index
+# Python
 
 ## [Django Book](./Django%20Book.md)
 ## [Web Scraping](./WebScraping.md)
