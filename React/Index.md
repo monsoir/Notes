@@ -6,5 +6,6 @@
 ## [Webpack + React 搭建工程](./Webpack%20+%20React%20搭建工程.md)
 ## [Webpack 基本了解](./Webpack基本了解.md)
 ## [React (Native) 项目中植入 eslint](./React%20(Native)%20项目中植入%20eslint.md)
+## [将 React 项目部署到 GitHub Pages](./将%20React%20项目部署到%20GitHub%20Pages.md)
 
 
