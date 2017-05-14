@@ -21,13 +21,17 @@ touch ~/.gitmessage
 在上述的模版文件中填写好模版，如
 
 ```
-What: (Descript *what* you have done)
+What:
+# (Descript *what* you have done)
 
-Why: (Descript *why* you have done that)
+# Why:
+# (Descript *why* you have done that)
 
-How: (Descript *how* you have done that)
+# How:
+# (Descript *how* you have done that)
 
-Attach: (Descript other stuff, such as the influence, 'Gotcha things')
+# Attach:
+# (Descript other stuff, such as the influence, 'Gotcha things')
 
 ```
 
