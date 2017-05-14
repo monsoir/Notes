@@ -16,7 +16,14 @@
 	- [获取属性](#获取属性)
 	- [使用 Lambda 表达式过滤](#使用-lambda-表达式过滤)
 - [BeautifulSoup 的常见对象](#beautifulsoup-的常见对象)
+- [使用 Scrapy 进行采集](#使用-scrapy-进行采集)
+	- [安装 Scrapy](#安装-scrapy)
+	- [创建 Scrapy](#创建-scrapy)
+	- [创建一个爬虫](#创建一个爬虫)
+	- [运行爬虫](#运行爬虫)
+	- [设置日志处理方式](#设置日志处理方式)
 - [Extra](#extra)
+- [Reference](#reference)
 
 ## 配置环境
 
@@ -185,9 +192,148 @@ bsObj 就是一个 BeautifulSoup 对象
 不常用
 
 查找 HTML 的注释
+
+## 使用 Scrapy 进行采集
+
+[Scrapy 官网地址](https://scrapy.org)
+
+### 安装 Scrapy
+
+支持 Python 2.7 和 Python 3.3 或以上
+
+```shell
+pip install Scrapy
+```
+
+### 创建 Scrapy 项目
+
+```shell
+scrapy startproject wikiSpider
+```
+
+项目目录结构：
+
+- 📃 scrapy.cfg
+- 📁 wikiSpider
+	- 📃 `__init__.py`
+	- 📃 items.py
+	- 📃 middlewares.py
+	- 📃 pipelines.py
+	- 📃 settings.py
+	- 📁 spiders
+
+### 创建一个爬虫
+
+在 wikiSpider/wikiSpider/spiders/ 中：
+
+- 添加一个爬虫文件，如 articleSpider.py
+- 在 items.py 中定义一个模型类，如 Article
+
+在 Item.py 中，引入依赖
+
+```py
+from scrapy import Item, Field
+```
+
+定义 model
+
+```py
+class Article(Item):
+	title = Field()
+```
+
+每个 Item 对象表示网站上的一个页面
+
+title 表示页面上的 title 字段，还有其他的字段，如 url, content, header, image 等
+
+---
+
+ArticleSpider 与 wikiSpider 的区别：
+
+ArticleSpider 是 wikiSpider 中一员，仅用于维基词条页面的采集
+
+> 对于信息类型较多的大网站，可能需要为每种信息(如，博客的博文，图书出版发行星系，专栏文章)设置独立的 Scrapy.Item，每个 Item 有不同的字段，但所有 Item 都在同一个 Scrapy 项目中运行
+
+### 运行爬虫
+
+```shell
+scrapy crawl article
+```
+
+命令使用 Item 名称 article 来调用爬虫
+
+这里的 article 不是类名，不是文件名，而是 **由 articleSpider.py 文件中的 ArticleSpider 类的属性 name="article" 决定**
+
+### 设置日志处理方式
+
+Scrapy 默认把生成的调试信息全部输出到控制台。这可以通过设置日志显示层级来控制
+
+通过在 setting.py 中手动添加配置，setting.py 中没有这个配置，但是在默认配置中配置了
+
+```py
+# ....
+
+LOG_LEVEL = 'ERROR'
+
+# ....
+```
+
+日志的 5 种层级，后一个层级会把前一个层级的信息显示出来，即 INFO 会把所有的信息显示出来
+
+- CRITICAL
+- ERROR
+- WARNING
+- DEBUG
+- INFO
+
+---
+
+同时，可以将日志输出到文件
+
+```shell
+scrapy crawl artical -s LOG_FILE=wiki.log
+```
+
+若目录中没有 wiki.log 文件，则会新建
+
+若目录中已存在 wiki.log 文件，则会在原文中追加新的日志内容
+
+---
+
+Scrapy 使用 Item 对象决定要从页面中提取什么信息，同时提供不同输出风格来保存信息，如 CSV, JSON, XML
+
+```shell
+scrapy crawl article -o articles.csv -t csv
+scrapy crawl article -o articles.json -t json
+scrapy crawl article -o articles.xml -t xml
+```
+
  
 ## Extra
 
 urllib2 是 Python 2.x 中的标准库，相当于 Python 3.x 中的 urllib，后者是前者的改名
 
+Python 中的正则表达式规则
+
+![](http://ww3.sinaimg.cn/large/006tNc79gy1ffkr93hx0nj30py0p046v.jpg)
+
+---
+
+ImportError: No module named 'sgmllib'
+
+sgmllib 在 Python 3.x 版本中已经被废弃
+
+```py
+from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
+```
+
+需改为
+
+```py
+from scrapy.linkextractors import LinkExtractor
+```
+
+## Reference
+
+[Python网络数据采集](http://www.ituring.com.cn/book/1709)
 
