@@ -67,3 +67,46 @@ git reset --hard head^^^^...(100 个 ^)
 git reset --hard head~100
 ```
 
+### 创建分支
+
+```shell
+# 创建分支，并切换到分支
+git checkout -b <分支名称>
+
+# 创建分支
+git branch <分支名称>
+# 切换分支
+git checkout <分支名称>
+```
+
+### 查看当前分支
+
+```shell
+git branch
+```
+
+会列出所有的分支，而当前分支会在其名称前标记 `*`
+
+### 提交修改
+
+在分支上的提交与平时并没有什么区别
+
+```shell
+git commit
+```
+
+### 合并分支到 master
+
+```shell
+git merge <分支名称>
+```
+
+---
+
+合并完分支后可以删除分支
+
+```shell
+git branch -d <分支名称>
+```
+
+
