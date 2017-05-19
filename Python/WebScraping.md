@@ -308,6 +308,79 @@ scrapy crawl article -o articles.json -t json
 scrapy crawl article -o articles.xml -t xml
 ```
 
+## 存储数据
+
+在 Python 3.x 中，urllib.request.urlretrieve 可以根据文件的 URL 下载文件
+
+```py
+from urllib.request import urlretrieve
+
+urlretrieve(<文件路径>, <存储名称>)
+```
+
+### Python 与 MySQL 整合
+
+其中一个与 MySQL 交互的 Python 工具，[PyMySQL](https://github.com/PyMySQL/PyMySQL)
+
+---
+
+安装 PyMySQL
+
+```shell
+pip install PyMySQL
+```
+
+---
+
+与数据库交互例子
+
+```py
+import pymysql
+
+conn = pymysql.connect(host='127.0.0.1', unix_socket='/tmp/mysql.sock', user='root', passwd='password', db='mysql')
+
+cur = conn.cursor()
+cur.execute("USE scraping")
+
+cur.execute("SELECT * FROM pages WHERE id=1")
+print(cur.fetchone)
+cur.close
+```
+
+这里用到了 **连接／光标** 模式，这是数据库编程中常用的模式
+
+连接模式的作用：
+
+- 连接数据库
+- 发送数据库消息
+- 处理回滚操作（查询中断时，回到初始状态，一般使用事务控制手段实现状态回滚）
+- 创建新的光标对象
+
+光标的作用
+
+- 一个连接可以有多个光标
+- 一个光标跟踪一种状态信息，如跟踪数据库的使用状态
+- 若有多个数据库，并需要向多个数据库写内容，这是需要多个光标处理
+- 光标会包含最后一次查询执行的结果，使用 `cur.fetchone()` 可以获取查询结果
+
+光标和连接使用完毕后，需要关闭，否则会导致 **连接泄漏**，导致数据库资源浪费
+
+--- 
+
+处理 Unicode 字符串，改变编码
+
+```sql
+ALTER DATABASE scraping CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+ALTER TABLE pages CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE pages CHANGE title title VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE pages CHANGE content content VARCHAR(10000) CHARACTER SET utf8mb4 CO LLATE utf8mb4_unicode_ci;
+```
+
+分别改变的内容是：
+
+- 数据库
+- 数据表
+- 两个字段的默认编码
  
 ## Extra
 
