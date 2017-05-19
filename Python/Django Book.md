@@ -15,6 +15,9 @@
 - [Model](#model)
 - [使用 shell 来操作 model 与数据库交互的 API](#使用-shell-来操作-model-与数据库交互的-api)
 - [后台管理](#后台管理)
+- [编写 Views](#编写-views)
+	- [View 的定位](#view-定位)
+	- [View 的工作](#view-的工作)
 - [问题解决](#问题解决)
 - [遗留笔记](#遗留笔记)
 
