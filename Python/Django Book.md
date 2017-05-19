@@ -8,7 +8,7 @@
 - [创建项目](#创建项目)
 - [开启开发环境服务](#开启开发环境服务)
 - [创建应用](#创建应用)
-- [编写 Views，配置路由](#编写-views，配置路由)
+- [配置路由](#配置路由)
 - [配置数据库](#配置数据库)
 - [设置时区](#设置时区)
 - [INSTALL_APPS](#install_apps)
@@ -105,7 +105,7 @@ App 是一个网络应用，真正干活的东西，如一个日志系统。
 Project 是一个对一个网站，包含配置文件与一个或多个 app 的集合。
 一个 project 可以包含多个 app，一个 app 可以在多个 project 中存在。
 
-## 编写 Views，配置路由
+## 配置路由
 
 ### Views
 
@@ -430,6 +430,61 @@ from .models import Question
 # 注册 model
 admin.site.register(Question)
 ```
+
+## 编写 Views
+
+每一个网页或其他内容，都是通过 views 来承载的，每一个 view 由一个 Python 函数／方法（如果是基于类的 view）呈现
+
+Django 使用 URLconfs 来访问到相应的 view，一个 URLconf 映射 views 的 URL patterns (即通常的正则表达式)
+
+关于使用 URLconfs 的更多信息，参考 django.urls
+
+### View 的定位
+
+当访问一个路径时，如 /polls/34/
+
+1. Django 会加载 mysite.urls 模块（项目的路由文件），这是由于配置文件中的 ROOT_URLCONF 中指定的
+
+	```py
+	ROOT_URLCONF = 'mysite.urls'
+	```
+
+2. 加载 mysite.urls 模块后，会找到变量 `urlpatterns` 并按顺序遍历其中的正则表达式
+3. 当匹配到 `'^polls/'` 后，Django 会去掉路径中的 `'polls/'`，并将剩下的 `'34/'` 发送到 polls.urls 中，并执行与上述步骤类似的操作
+4. 当匹配到正则表达式 `r'^(?P<question_id>[0-9]+)/$'` 后，便会调用对应的函数／方法，这里是 views.detail()，并将参数传送过去
+
+	```py
+	detail(request=<HttpRequest object>, question_id='34')
+	```
+
+	使用圆括号包裹正则表达式可以捕捉到匹配的字符串并传送到对应的视图函数，如 `question_id='34'` 就是来自 `(?P<question_id>[0-9]+)`。同时，?P<question_id> 定义了参数的名字
+
+由于使用了正则表达式来匹配路由，并不需要在 URL 中添加 `.html`
+
+### Views 的工作
+
+View 的职责有两个，最后都需要做到以下其中一件事，其他部分随意
+
+- 返回一个 HttpResponse 对象，其中包含了请求页面的响应内容
+- 抛出异常，如 `Http404`
+
+---
+
+View 可以做的事情很多，例如：
+
+- 从数据库中读取信息
+- 使用 Django 或第三方的模版系统
+- 生成 PDF 文件，输出 XML，创建 ZIP 文件
+- ...
+
+#### 模版
+
+模版定义了页面的外观
+
+项目的配置文件中，TEMPLATES 定义了 Django 将如何加载并渲染模版
+
+默认的配置，BACKEND 默认了 DjangoTemplates 模版引擎，APP_DIRS 设置了 True，即 DjangoTemplates 将会在 INSTALLED_APPS 配置了的 App 的文件夹下寻找 templates 文件夹
+
 
 ## 问题解决
 
