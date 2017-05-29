@@ -218,8 +218,6 @@ Build Settings -> Build Active Architecture Only -> NO
 	![](https://ws1.sinaimg.cn/large/006tNc79gy1ffsx45k3fxj303702mjra.jpg)
 
 3. 迁移相关文件
-
-	创建一个与 framwork 同名的文件夹，并将文件夹的扩展名改为 .framework，设为 B
 	
 	将模拟器或者真机的 framework 复制一份出来，这里假设复制了模拟器的包，设为 B
 	
