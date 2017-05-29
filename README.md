@@ -1,4 +1,4 @@
-# README.md
+# Index
 
 ## Notes
 
@@ -41,6 +41,7 @@
 ### [Python](https://github.com/Monsoir/Notes/blob/master/Python/index.md)
 
 ## R
+### [Raspberry Pie](./RaspberryPie/index.md)
 ### [React (Native)](./React/Index.md)
 
 ## T
