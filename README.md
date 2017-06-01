@@ -26,7 +26,7 @@
 ### [HTTP](./HTTP/Index.md)
 
 ## I
-### [Ionic](https://github.com/Monsoir/Notes/blob/master/ionic/ionic%20notes.md)
+### [Ionic](./ionic/index/md)
 ### [iOS](https://github.com/Monsoir/Notes/blob/master/iOS/index.md)
 
 ## J
