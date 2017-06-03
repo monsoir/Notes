@@ -2,5 +2,9 @@
 
 ## JavaScript
 
-- [mermaid](./JavaScript/mermaid.md)
+- [流程图制作工具 mermaid](./JavaScript/mermaid.md)
+
+## Python
+
+- [流程图制作工具 graphviz](./Python/graphviz.md)
 
