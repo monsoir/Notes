@@ -6,5 +6,5 @@
 
 ## Python
 
-- [流程图制作工具 graphviz](./Python/graphviz.md)
+- [流程图制作工具 graphviz](./Python/Graphviz.md)
 

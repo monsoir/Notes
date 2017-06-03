@@ -1,6 +1,6 @@
 # graphviz
 
-[👉官网地址](http://www.graphviz.org)
+[👉 官网地址](http://www.graphviz.org)
 
 ## 安装
 
@@ -58,7 +58,7 @@ digraph d {
 
 ### 记要
 
-1. 实体，连线之间的属性设置，真的没有什么捷径，参照 [👉官方文档](http://www.graphviz.org/content/attrs) 逐个对照着找吧
+1. 实体，连线之间的属性设置，真的没有什么捷径，参照 [👉 官方文档](http://www.graphviz.org/content/attrs) 逐个对照着找吧
 2. 一些已知的属性区别
 	- label, xlabel
 		- label 位于连线的旁边（即连线的上面或下面）
