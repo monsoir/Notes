@@ -208,7 +208,7 @@ Build Settings -> Build Active Architecture Only -> NO
 2. 运行命令
 
 	```shell
-	lipo -create -output xxx.framework \
+	lipo -create -output xxx \
 								Release-iphoneos/xxx.framework/xxx \
 								Release-iphonesimulator/xxx.framework/xxx
 	```
@@ -249,5 +249,6 @@ Build Settings -> Build Active Architecture Only -> NO
 ## Reference
 
 [http://www.jianshu.com/p/f14553494d88](http://www.jianshu.com/p/f14553494d88)
+
 [http://swifter.tips/code-framework/](http://swifter.tips/code-framework/)
 
