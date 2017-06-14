@@ -1,5 +1,15 @@
 # React Native 调用 iOS 原生模块
 
+- [原生端工作](#原生端工作)
+	- [创建一个类](#创建一个类)
+	- [导出这个类为一个模块](#导出这个类为一个模块)
+	- [导出 React Native 为调用的方法](#导出-react-native-为调用的方法)
+	- [导出常量](#导出常量)
+- [React Native 端工作](#react-native-端工作)
+	- [在调用原生模块的文件中引入文件](#在调用原生模块的文件中引入文件)
+	- [正常编写](#正常编写)
+- [Reference](#reference)
+
 ## 原生端工作
 
 ### 创建一个类
@@ -24,7 +34,7 @@ RCT_EXPORT_MODULE();
 
 > 这个宏也可以添加一个参数用来指定在Javascript中访问这个模块的名字。如果你不指定，默认就会使用这个Objective-C类的名字
 
-### 导出 React Native 调用的方法
+### 导出 React Native 为调用的方法
 
 声明要给Javascript导出的方法，否则React Native不会导出任何方法。声明通过RCT_EXPORT_METHOD()宏来实现
 
@@ -148,7 +158,7 @@ let touchIDManager = NativeModules.TouchIDManager;
 ```
 
 
-## Reference
+## References
 
 [http://reactnative.cn/docs/0.45/native-modules-ios.html#content](http://reactnative.cn/docs/0.45/native-modules-ios.html#content)
 
