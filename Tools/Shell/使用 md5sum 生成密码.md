@@ -5,6 +5,7 @@
 - [生成密码](#生成密码)
 	- [安装 md5sh1sum](#安装-md5sh1sum)
 	- [生成密码](#生成密码)
+- [References](#references)
 
 ## md5sum
 
@@ -56,4 +57,8 @@ echo test + google.com | md5sum | cut -c 1-10
 ```
 bfa6b4f847
 ```
+
+## References
+
+- [http://weibo.com/1400854834/F8cC4xBCp?type=comment#_rnd1497680088544](http://weibo.com/1400854834/F8cC4xBCp?type=comment#_rnd1497680088544)
 
