@@ -233,8 +233,21 @@ serialQ.async { [unowned self] in
 
 - 摄像头的隐私访问描述字段 -> NSCameraUsageDescription
 - 麦克风的隐私访问描述字段 -> NSMicrophoneUsageDescription
-- 当需要改变 session 的配置时，如改变录制质量，切换前后摄像头等操作时，需要调用 `lockForConfiguration()` 来独占访问权限，并使用 `unlockForConfiguration()` 进行释放权限
+- 当需要改变 session 的配置时，如改变录制质量等操作时，需要调用 `lockForConfiguration()` 来独占访问权限，并使用 `unlockForConfiguration()` 进行释放权限
 - 当用户未授权时，对于录制视频或音频的尝试，得到的将是黑色画面和无声
+- 存储路径，需要以 `file://` 开头
+
+## 额外补充
+
+### 指定录制时长
+
+设置 AVCaptureMovieFileOutput 属性 maxRecordedDuration，默认为不限制
+
+注意的是，maxRecordedDuration 的类型是 CMTime
+
+其中的一个初始化方法 `init(seconds: Double, preferredTimescale: CMTimeScale)`
+
+其计算形式是 `int64/int32`，即 seconds / preferredtimescale，可以看作是分数，因此当以秒来做单位是，可以置 [preferredTimescale 为 1
 
 ## References
 
