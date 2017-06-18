@@ -69,3 +69,16 @@
 	}
 	```
 
+# Swift 中创建编写 Singleton
+
+```swift
+class Singleton  {
+    static let sharedInstance = Singleton()
+    private override init() {}
+}
+```
+
+类变量的初始化会放在 swift_once_block_invoke 中进行，保证了唯一性
+
+通过覆盖默认的公开初始化方法，并置为私有化，保证其他地方不能通过 init 来生成更多的实例
+
