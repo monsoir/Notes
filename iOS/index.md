@@ -14,4 +14,5 @@
 - [Debug](./Debug.md)
 - [语言国际化](./iOS%20语言国际化.md)
 - [分拆 View Controller 中的自动布局代码](./分拆%20View%20Controller%20中的自动布局代码.md)
+- [使用 AVFoundation 进行视频录制](./使用%20AVFoundation%20进行视频录制.md)
 
