@@ -1,5 +1,6 @@
 # JavaScript
 
-## [JavaScriptNotes](./JavaScriptNotes.md)
-## [this](./this.md)
+- [JavaScriptNotes](./JavaScriptNotes.md)
+- [this](./this.md)
+- [Promise](./promise.md)
 
