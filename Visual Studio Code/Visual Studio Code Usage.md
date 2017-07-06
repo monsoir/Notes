@@ -25,3 +25,20 @@
 ⌘ + ⇧ + P -> react native: Run iOS
 
 
+## Side bar 中隐藏部分文件的显示
+
+在 User Settings 中添加字段:
+
+```js
+"files.exclude": {
+   "**/.git": true,
+   "**/.svn": true,
+   "**/.hg": true,
+   "**/CVS": true,
+   "**/.DS_Store": true,
+   // 以上是默认的
+   // 以下是自己添加的
+   "*_*": true
+}
+```
+
