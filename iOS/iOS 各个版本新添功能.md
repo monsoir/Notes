@@ -32,6 +32,7 @@
 - iPad 分屏任务
 - App Thining，针对设备的特点，下载相关的资源，如图片尺寸
 - Bitcode，LLVM 的中间码，开发者提交 Bitcode 给 Apple, Apple 通过对提交的 Bitcode 进行优化
+- 引入了 Contacts Framework
 
 ## iOS 10
 
