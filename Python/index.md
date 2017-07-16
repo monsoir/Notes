@@ -7,4 +7,6 @@
 - [Python Grammer](https://github.com/Monsoir/Notes/blob/master/Python/Grammer.md)
 - [codewar-python](https://github.com/Monsoir/Notes/blob/master/Python/codewar-python.md)
 - [httpie 基本用法](./httpie%20基本用法.md)
+- [Python 正则表达式](./Python%20正则表达式/Python$20正则表达式.md)
+- [Python 字符串基本操作](./Python%20字符串基本操作/Python%20字符串基本操作.md)
 
