@@ -1,4 +1,4 @@
 # Framework 结构
 
-![](./framework-structure.png)
+![](./ios-framework-structure.png)
 
