@@ -1,4 +1,8 @@
 # Framework 结构
 
-![](./ios-framework-structure.png)
+![](./assets/ios-framework-structure.png)
+
+# 绘图系统
+
+![](./assets/ios-drawing-system.png)
 
