@@ -3,7 +3,7 @@
 - [Carthage 使用流程](#carthage-使用流程)
 - [安装 Carthage](#安装-carthage)
 - [将 framework 添加到项目中](#将-framework-添加到项目中)
-    - [对于 iOS, tvOS, watchOS](#对于-ios,-tvos,-watchos)
+    - [对于 iOS, tvOS, watchOS](#对于-ios-tvos-watchos)
     - [运行一个使用 Carthage 的项目](#运行一个使用-carthage-的项目)
     - [更新 framework](#更新-framework)
 - [Cartfile 写法](#cartfile-写法)
