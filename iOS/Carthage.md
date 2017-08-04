@@ -1,5 +1,14 @@
 # Carthage 使用方法
 
+- [Carthage 使用流程](#carthage-使用流程)
+- [安装 Carthage](#安装-carthage)
+- [将 framework 添加到项目中](#将-framework-添加到项目中)
+    - [对于 iOS, tvOS, watchOS](#对于-ios,-tvos,-watchos)
+    - [运行一个使用 Carthage 的项目](#运行一个使用-carthage-的项目)
+    - [更新 framework](#更新-framework)
+- [Cartfile 写法](#cartfile-写法)
+- [References](#references)
+
 ## Carthage 使用流程
 
 1. 创建一个文件，名为 Cartfile, 在其中列出项目中需要使用到的 framework
@@ -83,7 +92,57 @@ carthage upadte xxx
 carthage update xxx yyy
 ```
 
+## Cartfile 写法
+
+### 关于源 (origin) 的问题
+
+目前 Carthage 支持 3 种源：
+
+- GitHub 上的 repositories
+- Git 的 repositories
+- 通过 https 协议传送的二进制 frameworks
+
+#### 使用 GitHub repositories
+
+使用 `github` 关键字
+
+```carfile
+github "ReactiveCocoa/ReactiveCocoa" # GitHub.com
+github "https://enterprise.local/ghe/desktop/git-error-translations" # GitHub Enterprise
+```
+
+#### 使用 Git repositories
+
+使用 `git` 关键字
+
+```carfile
+git "https://enterprise.local/desktop/git-error-translations2.git"
+```
+
+#### 二进制 frameworks
+
+使用 `binary` 关键字，并且 URL 使用的是 https 协议
+
+```carfile
+binary "https://my.domain.com/release/MyFramework.json"
+```
+
+> 关于这个 json 文件的具体格式，直接看原文，目前本人用到的不多
+
+### 关于 framework 版本
+
+Carthage 支持 framework 不同的版本指定
+
+- `>= 1.0` 版本 1.0 或以上
+- `~> 1.0` 大版本是 1, 即 1.0 <= version < 2.0
+- `== 1.0` 正是版本 1.0
+- `"分支名称 或 标签名称 或 提交版本号"`
+
+> 若不指定 framework 的版本号，则默认抓取最新版
+
 ## References
 
-- [原文 👉 https://github.com/Carthage/Carthage](https://github.com/Carthage/Carthage)
+- [👉 原文 https://github.com/Carthage/Carthage](https://github.com/Carthage/Carthage)
+- [👉 Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md)
+
 
