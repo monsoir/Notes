@@ -4,7 +4,7 @@
 - [安装 Carthage](#安装-carthage)
 - [将 framework 添加到项目中](#将-framework-添加到项目中)
     - [对于 iOS, tvOS, watchOS](#对于-ios-tvos-watchos)
-    - [运行一个使用 Carthage 的项目](#运行一个使用-carthage-的项目)
+    - [运行一个已经使用 Carthage 的项目](#运行一个已经使用-carthage-的项目)
     - [更新 framework](#更新-framework)
 - [Cartfile 写法](#cartfile-写法)
 - [References](#references)
@@ -44,7 +44,7 @@
 ### 对于 iOS, tvOS, watchOS
 
 1. 创建一个文件，名为 Cartfile, 在其中列出项目中需要使用到的 framework
-2. 运行 `carthage update`, 这将会拉取所有的依赖到 📁Carthage/Checkouts, 然后构建或下载一个 pre-compiled 的 framework
+2. 运行 `carthage update --platform iOS`, 这将会拉取所有的依赖到 📁Carthage/Checkouts, 然后构建或下载一个 pre-compiled 的 framework
 3. 在项目的 targets -> General -> Linked Frameworks and Libraries 中，将每一个需要的 framework 从 📁Carthae/Build 中拖放到其中
 4. targets -> Build Phases -> + -> New Run Script Phase, 创建一个运行脚本
 
@@ -70,7 +70,7 @@
 
 是应对应用提交到 App Store 时的一个 bug. 这个 bug triggered by universal binaries and ensures that necessary bitcode-related files and dSYMs are copied when archiving.
 
-### 运行一个使用 Carthage 的项目
+### 运行一个已经使用 Carthage 的项目
 
 运行命令
 
