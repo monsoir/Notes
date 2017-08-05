@@ -1,5 +1,10 @@
 # Visual Studio Code 的一些用法
 
+- [通过命令行打开 Visual Studio Code](#通过命令行打开-visual-studio-code)
+- [React Native](#react-native)
+- [Side bar 中隐藏部分文件的显示](#side-bar-中隐藏部分文件的显示)
+- [Python](#python)
+
 ## 通过命令行打开 Visual Studio Code
 
 ### 安装
@@ -41,4 +46,19 @@
    "*_*": true
 }
 ```
+
+## Python
+
+### 配置 Python 的执行路径
+
+在项目的 launch.json 中配置
+
+```json
+{
+    "python.pythonPath": "/home/xxx/dev/ala/venv/bin/python"
+}
+```
+
+参考自 [👉 https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#virtual-environments](#https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#virtual-environments)
+
 
