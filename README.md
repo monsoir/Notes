@@ -48,7 +48,7 @@
 
 ## M
 
-- [Mac](https://github.com/Monsoir/Notes/blob/master/Mac/Mac.md)
+- [Mac](./Mac/index.md)
 - [MySQL](./MySQL/Index.md)
 - [Mongo](./Mongo/index.md)
 
