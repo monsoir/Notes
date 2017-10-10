@@ -14,3 +14,9 @@
 ln -s <源文件> <目标文件>
 ```
 
+## 制作 macOS 安装盘
+
+```sh
+sudo /Applications/<下载的安装包>/Contents/Resources/createinstallmedia --volume /Volumes/<U盘名称> --applicationpath /Applications/<下载的安装包> --nointeraction
+```
+
