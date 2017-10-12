@@ -24,4 +24,5 @@
 - [SQLite 基本知识](./SQLite%20基本知识.md)
 - [上传下载 服务端Node.js / 客户端 iOS 编写](./UpDownload/index.md)
 - [iOS 中的各种 Layer](./layers.md)
+- [监听数组变化](./监听数组变化.md)
 
