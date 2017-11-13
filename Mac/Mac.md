@@ -20,3 +20,12 @@ ln -s <源文件> <目标文件>
 sudo /Applications/<下载的安装包>/Contents/Resources/createinstallmedia --volume /Volumes/<U盘名称> --applicationpath /Applications/<下载的安装包> --nointeraction
 ```
 
+## 彻底更改系统语言设置
+
+```sh
+sudo languagesetup
+```
+
+- 比图形界面的设置更彻底
+- 需要使用 root 权限
+
