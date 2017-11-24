@@ -1,10 +1,26 @@
 # MySQL 中的类型问题
 
-## 类型设置
+## 字符串类型
 
 ```sql
 CREATE TABLE status_names (status_id INT, status_name CHAR(8));
 ```
 
 上面使用 `CHAR(8)` 而不是 `TEXT`, 可以限制字符串长度，提高数据库性能，需要在设计表时考虑好
+
+---
+
+变长字符类型 `VARCHAR`
+
+`VARCHAR(255)` 表明最大长度为 255
+
+> `CHAR` 与 `VARCHAR`
+> 
+> `CHAR` 分配到的空间总是最大长度，不会因内容少而减少，但表的运行速度会更快
+> `VARCHAR` 存储引擎为根据字符分配的空间根据长度而定
+
+---
+
+`TEXT` 长度可变，最多为 65535 字节
+
 

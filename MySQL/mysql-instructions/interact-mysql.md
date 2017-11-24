@@ -41,6 +41,26 @@ mysql -u <用户名> -p
 CREATE DATABASE test;
 ```
 
+或
+
+```mysql
+CREATE SCHEMA test;
+```
+
+### 删除数据库
+
+```mysql
+DROP DATABASE <database name>;
+```
+
+### 创建数据库，指定默认字符集，指定数据的排序方式
+
+```mysql
+CREATE DATABASE <database name>
+CHARACTER SET latin1<char set>
+COLLATE latin1_bin;
+```
+
 ### 创建表
 
 ```sql
@@ -83,6 +103,14 @@ INSERT INTO <table name> VALUES(<value11>, <value12>), (value21,value22), ...;
 
 ```sql
 UPDATE <table name> SET <field> = <value> WHERE <field> = <value>;
+```
+
+### 查看表结构
+
+同时回顾建表时的设置，包括自定义的和系统默认的
+
+```mysql
+SHOW CREATE TABLE <table name> \G # 用行的方式来显示
 ```
 
 
