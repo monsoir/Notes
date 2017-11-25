@@ -1,8 +1,8 @@
 # Raspberry Pie
 
-- [树莓派3 设置静态 IP](./树莓派设置静态%20IP.md)
-- [错误处理](./错误处理.md)
-- [树莓派3 外接硬盘](./树莓派挂载外接硬盘.md)
+- [树莓派3 设置静态 IP](./raspberry-static-ip.md)
+- [错误处理](./error-handle.md)
+- [树莓派3 外接硬盘](./raspberry-extend-storage.md)
 
 
 
