@@ -29,3 +29,21 @@ sudo languagesetup
 - 比图形界面的设置更彻底
 - 需要使用 root 权限
 
+## 命令别名
+
+这也是 Linux 通用
+
+1. 修改或创建文件 `~/.bash_profile`
+2. 添加别名设置
+
+    ```sh
+    alias ll='ls -l'
+    ```
+3. 重新加载 `source ~/.bash_profile`
+
+> ⚠️
+> 
+> 别名设置时，别名，等号，命令之间不能有空格
+> ll = 'ls -l' ✘
+> ll='ls -l' ✔︎
+
