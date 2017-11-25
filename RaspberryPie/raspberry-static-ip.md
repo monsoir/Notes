@@ -1,51 +1,25 @@
-# 树莓派设置静态 IP (WLAN 下)
+# 树莓派设置静态 IP
 
-1. 修改配置文件
+## 有线网络环境
 
-	方法 1
+使用 RaspberryPi Jessie 系统，此系统的设置与网上的很多教程有所出入，原因是这个系统中，引入了 dhcpcd.conf 文件，我们需要针对这个文件进行修改
 
-	```shell
-	sudo vi /etc/network/interfaces
-	```
+主要的两点是
 
-	添加配置
+1. 不修改 `/etc/network/inferfaces` 文件
+2. 而是修改 `/etc/dhcpcd.conf` 文件
+3. 重启 `sudo reboot`
 
-	```
-	iface wlan0 inet static
-	address 192.168.1.xxx
-	netmask 255.255.255.0
-	gateway 192.168.1.1
-	domain-nameserver 114.114.114.114 # dns 服务器
-	```
-	
-	---
+修改配置
 
-	方法 2
+```config
+interface eth0 # eth0 表明有线网络
+static ip_address=192.168.1.xxx/24 # 树莓派以太口静态 IP
+static routers=192.168.1.xxx # 路由器 IP
+static domain_name_servers=xxx.xxx.xxx.xxx # DNS 服务器 IP
+```
 
-	```shell
-	sudo vi /etc/dhcpcd.conf
-	```
-	
-	最后追加
+- [https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address](https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address)
+- [https://gaomf.cn/2016/10/27/Raspberry_Pi_Static_IP/](https://gaomf.cn/2016/10/27/Raspberry_Pi_Static_IP/)
 
-	```
-	interface wlan0 # Wi-Fi 连接用 wlan0，网线连接用 eth0
-	static ip_address=xxx.xxx.x.xxx/24
-	static routers=192.168.1.1
-	static domain_name_servers=114.114.114.114
-	```
-
-3. 重启
-
-	```shell
-	sudo reboot
-	```
-
-4. 查看
-
-	```shell
-	sudo ifconfig
-	```
-	
-	找到 wlan0 栏，查找 `inet addr: xxx.xxx.x.xxx`
 
