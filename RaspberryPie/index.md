@@ -9,6 +9,7 @@
 - [解决 ssh 到树莓派上时，中文显示乱码的问题](./raspberry-ssh-locale.md)
 - [树莓派配置 ftp 功能](./raspberry-ftp.md)
 - [树莓派配置 Samba 共享](./raspberry-samba.md)
+- [树莓派创建与卸载开机自运行脚本](./run-when-start.md)
 
 
 
