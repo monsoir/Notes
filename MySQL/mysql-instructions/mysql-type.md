@@ -32,4 +32,21 @@ CREATE TABLE status_names (status_id INT, status_name CHAR(8));
 
 `endangerd BIT DEFAULT b'1'`
 
+## ENUM 枚举
+
+```sql
+ENUM('Extinct',
+  'Extinct in Wild',
+  'Threatened - Critically Endangered',
+  'Threatened - Endangered',
+  'Threatened - Vulnerable',
+  'Lower Risk - Conservation Dependent',
+  'Lower Risk - Near Threatened',
+  'Lower Risk - Least Concern')
+```
+
+- 枚举所有可接受的值
+- 值放在一对括号中
+- 每个值用引号包围
+- 值之间用逗号分隔
 
