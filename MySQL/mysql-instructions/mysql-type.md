@@ -23,4 +23,13 @@ CREATE TABLE status_names (status_id INT, status_name CHAR(8));
 
 `TEXT` 长度可变，最多为 65535 字节
 
+## BIT 数据类型
+
+- 这个类型只占一位，即可以当 `true`, `false` 使用
+    - 1 有设定值
+    - 0 没有设定值
+- 要为给类型赋值，需要将值用引号包围，并在前面加上字母 b
+
+`endangerd BIT DEFAULT b'1'`
+
 
