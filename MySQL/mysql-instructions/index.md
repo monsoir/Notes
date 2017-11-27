@@ -4,5 +4,6 @@
 - [与 MySQL 交互](./interact-mysql.md)
 - [MySQL 类型细节](./mysql-type.md)
 - [MySQL 备份与恢复](./mysql-backup-restore.md)
+- [MySQL 更改表](./mysql-alter-table.md)
 
 
