@@ -85,12 +85,29 @@ USE <database name>;
 DESCRIBE <database name>.<table name>;
 ```
 
+```mysql
+SHOW COLUMN FROM <table name>;
+```
+
+以上两个命令的结果大致相同，但是后者有一个过滤功能
+
+```mysql
+SHOW COLUMN FROM <table name>
+LIKE '%id';
+```
+
+这样可以只显示以 `id` 结尾的列
+
 ### 插入数据
 
 假设已经使用了 `USE` 命令设置默认表
 
 ```sql
-INSERT INTO <table name> VALUES (<value1>, <value2>, ...);
+INSERT INTO <table name>
+VALUES
+(<value11>, <value12>, ...),
+(<value21>, <value22>, ...),
+...;
 ```
 
 一次插入多条数据
