@@ -60,6 +60,14 @@ MySQL 主配置文件位置，类 Unix 系统
 
 > 可以通过在 [mysqld] 下添加 `log=/var/log/mysql` 来设置日志文件的路径，并激活日志功能
 
+---
+
+Mac 上默认的数据存储路径是
+
+```
+/usr/local/var/mysql
+```
+
 ### 设置 root 初始密码
 
 ```sh
@@ -133,4 +141,50 @@ mysql -u root -p -e "GRANT ALL ON *.* TO 'alfred'@'localhost' IDENTIFIED BY 'Roo
 ```sh
 mysql -u root -p -e "SHOW GRANTS FOR 'alfred'@'localhost'\g"
 ```
+
+## Mac 上迁移数据库文件存储路径
+
+下面方法试用于使用 Homebrew 安装的 MySQL
+
+### 重要文件路径
+
+数据库文件原存储路径
+
+```
+/usr/local/var/mysql
+```
+
+数据库配置文件路径
+
+```
+/usr/local/etc/my.cnf
+```
+
+### 开始迁移
+
+1. 停止 MySQL 服务
+
+    ```sh
+    mysql.server stop
+    ```
+
+1. 更改配置文件
+
+    ```
+    # Default Homebrew MySQL server config
+    [mysqld]
+    # Only allow connections from localhost
+    bind-address = 127.0.0.1
+    datadir=/new/data/storage/path # 填写新的路径
+    ```
+
+1. 迁移原数据库文件
+
+    将 `/usr/local/var/mysql` 下的文件及文件夹，复制到新的路径下
+
+1. 重启 MySQL 服务
+
+    ```sh
+    mysql.server start
+    ```
 
