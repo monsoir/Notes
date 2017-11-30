@@ -1,6 +1,6 @@
 # Docker 基本命令或用法
 
-使用图形化工具安装后，配置加速器
+使用图形化工具安装后，配置加速器，中国镜像 https://registry.docker-cn.com
 
 ![](https://ww1.sinaimg.cn/large/006tKfTcgy1fcydp4j0pcj30af0ejt9h.jpg)
 
@@ -18,6 +18,13 @@
 		- 关闭 nginx 服务
 	- `docker rm webserver`
 
+- Docker 与宿主机共享数据
+    - `docker run -it --rm -v [宿主机绝对路径]:[容器内路径] [镜像名称] /bin/bash`
+    - 进入到的命令行环境可以访问到共享目录
+    - 需要现在 Docker 容器中创建一个挂载目录，类似 Linux 中挂载外接设备
+    - i,t 选项分别表示，进入交互环境，进入控制台
+    - rm 表示，退出容器后，删除容器
+
 
 ## 获取镜像 (Image) ≈ root 文件系统
 
@@ -27,6 +34,8 @@
 	- e.g: `docker pull ubuntu:14.04`
 
 ## 列出已下载的镜像
+
+镜像与容器 ≈ 类与实例
 
 ### 全部镜像
 
@@ -47,5 +56,44 @@
 ## 删除镜像
 
 - `docker rmi <image name>`
+
+
+## 常用命令
+
+- 查看安装了的镜像
+
+```sh
+docker images
+```
+
+- 查看正在运行的容器
+
+    ```sh
+    docker container ls
+    ```
+
+- 查看所有容器
+
+    ```sh
+    docker container ls -a
+    ```
+
+- 重命名容器
+
+    ```sh
+    docker container rename [container id] [container new name]
+    ```
+
+- 启动容器
+
+    ```sh
+    docker container start [container id | container name]
+    ```
+
+- 挂载已运行的容器
+
+    ```sh
+    docker attach [container id | container name]
+    ```
 
 
