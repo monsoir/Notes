@@ -15,3 +15,11 @@ extension Date {
 }
 ```
 
+## 获取时间组件
+
+```swift
+func component(of component: Calendar.Component) -> Int {
+    return Calendar.current.component(component, from: self)
+}
+```
+
