@@ -20,14 +20,14 @@ func associateValue<ValueType: Any>(base: AnyObject, key: UnsafePointer<UInt8>, 
 }
 
 // for 对象类型
-func associatedObject<ValueType: AnyObject>(base: AnyObject, key: UnsafePointer<UInt8>, initialiser: () -> ValueType) -> ValueType {
+func associatedObject<ValueType: Any>(base: AnyObject, key: UnsafePointer<UInt8>, initialiser: () -> ValueType) -> ValueType {
     if let associated = objc_getAssociatedObject(base, key) as? ValueType { return associated }
     let associated = initialiser()
     objc_setAssociatedObject(base, key, associated, .OBJC_ASSOCIATION_RETAIN)
     return associated
 }
 
-func associateObject<ValueType: AnyObject>(base: AnyObject, key: UnsafePointer<UInt8>, value: ValueType) {
+func associateObject<ValueType: Any>(base: AnyObject, key: UnsafePointer<UInt8>, value: ValueType) {
     objc_setAssociatedObject(base, key, value, .OBJC_ASSOCIATION_RETAIN)
 }
 
