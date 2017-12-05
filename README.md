@@ -39,7 +39,7 @@
 ## I
 
 - [Ionic](./ionic/index.md)
-- [iOS](https://github.com/Monsoir/Notes/blob/master/iOS/index.md)
+- [iOS](./iOS/index.md)
 
 ## J
 
