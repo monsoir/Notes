@@ -72,6 +72,17 @@ extension UITextView: UITextViewDelegate {
         }
     }
     
+    // 通过这个属性来获取文本，否则可能会获取到 placeholder 的值
+    var realText: String! {
+        get {
+            if (self.needPlaceholder && self.textColor == .lightGray) {
+                return ""
+            } else {
+                return self.text
+            }
+        }
+    }
+    
     convenience init(placeholder: String) {
         self.init()
         setPlaceholder(placeholder: placeholder, shouldSet: true)
