@@ -13,3 +13,10 @@ navigationController?.pushViewController(vc, animated: true)
 hidesBottomBarWhenPushed = false
 ```
 
+## 隐藏 tab bar 上的分割线
+
+```swift
+<#a tab bar#>.tabBar.shadowImage = UIImage()
+<#a tab bar#>.tabBar.backgroundImage = UIImage()
+```
+

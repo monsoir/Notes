@@ -77,3 +77,10 @@ iOS 11 后，手动设置 `titleView` 大小需要
     view.translatesAutoresizingMaskIntoConstraints = false
     ```
 
+## 隐藏导航栏下的分割线
+
+```swift
+<#a navigation bar#>.navigationBar.shadowImage = UIImage()
+```
+
+
