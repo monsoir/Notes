@@ -62,7 +62,7 @@ const ProviderApp = (
     <Route>…</Route>
     <Route>…</Route>
     <Route>…</Route>
-</Swicth>
+</Switch>
 ```
 
 ## 组件含有的额外参数

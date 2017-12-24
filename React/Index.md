@@ -8,18 +8,18 @@
 - [将 React 项目部署到 GitHub Pages](./react/react-github-pages.md)
 - [遵守 React 内置的 ESLint 规则](./react/react-eslint-rules.md)
 
-#### Webpack
+### Webpack
 
 - [Webpack + React 搭建工程](./react/webpack-react-project.md)
 - [Webpack 基本了解](./react/webpack-basic.md)
 
-#### React-Redux
+### React-Redux
 
 - [React-redux 基本要点](./react/react-redux-basic.md)
-- [React-Redux 异步使用](./react-redux-async)
+- [React-Redux 异步使用](./react/react-redux-async.md)
 - [在 Chrome 中调试 Redux](./react/react-redux-chrome.md)
 
-#### React-Router
+### React-Router
 
 - [React Router 简单使用](./react/react-router-base.md)
 
