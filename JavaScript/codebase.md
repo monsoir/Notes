@@ -45,3 +45,14 @@ function getDomain(url) {
 
 [Parsing Hostname and Domain from a Url with Javascript](http://www.primaryobjects.com/2012/11/19/parsing-hostname-and-domain-from-a-url-with-javascript/)
 
+## 检测键盘输入回车
+
+
+```js
+// 在 onKeyDown 事件中
+
+if (event.key === 'Enter') {
+  this.handleClick();
+}
+```
+
