@@ -17,6 +17,7 @@
 
 - [React-redux 基本要点](./react/react-redux-basic.md)
 - [React-Redux 异步使用](./react-redux-async)
+- [在 Chrome 中调试 Redux](./react/react-redux-chrome.md)
 
 ## React Native
 
