@@ -18,6 +18,7 @@
 - [React-redux 基本要点](./react/react-redux-basic.md)
 - [React-Redux 异步使用](./react/react-redux-async.md)
 - [在 Chrome 中调试 Redux](./react/react-redux-chrome.md)
+- [React Redux 的组件递归调用](./react/react-redux-recursive.md)
 
 ### React-Router
 
