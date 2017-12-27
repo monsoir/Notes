@@ -27,9 +27,13 @@
 - [httpie 基本用法](./httpie-basic.md)
 - [Python 邮件操作](./python-mail.md)
 - [Python 图像处理](./python-image.md)
+- [BeautifulSoup 使用方法](./beautifulsoup-basic.md)
+
+## Safari bookmarks jsonize
+
+
 
 ## 未分类
-
 
 - [codewar-python](https://github.com/Monsoir/Notes/blob/master/Python/codewar-python.md)
 
