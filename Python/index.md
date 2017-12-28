@@ -24,6 +24,7 @@
 
 ## 工具/库使用
 
+- [上传 Python 命令行工具程序到 PyPI](./upload-pypi.md)
 - [Python 依赖管理](./python-dependencies-manage.md)
 - [httpie 基本用法](./httpie-basic.md)
 - [Python 邮件操作](./python-mail.md)
