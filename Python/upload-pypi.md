@@ -104,6 +104,10 @@ python setup.py sdist
 
 twine 是一个与 PyPI 进行交互的工具，只支持注册项目和上传项目的功能
 
+```sh
+pip install twine
+```
+
 > 本来是用 `python setup.py sdist upload` 来上传，但是过程中各种烦人的错误，就直接使用 twine 进行上传了
 
 运行命令
