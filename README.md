@@ -1,6 +1,12 @@
-# Index
+# Notes 📒
 
-## Notes
+一直以来在学习编程路上的一些笔记，包括了一些感兴趣的技术以及工作上用到的一些技术
+
+笔记按类别分类，组织形式上，尽量使得需要的时候能够快速查找到
+
+Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US), Safari 上使用 [GitCodeTree](https://safari-extensions.apple.com/details/?id=com.buunguyen.gitcodetree-M3VJH5E8GQ) 配合查看更佳，Chrome 和 Safari 的扩展商店都有得下载
+
+## 索引
 
 [A](#a)  [B](#b)  [C](#c)  [D](#d)  [E](#e)  [F](#f)  [G](#g)  [H](#h)  [I](#i)  [J](#j)  [K](#k)  [L](#l)  [M](#m)  [N](#n)  [O](#o)  [P](#p)  [Q](#q)  [R](#r)  [S](#s)  [T](#t)  [U](#u)  [V](#v)  [W](#w)  [X](#x)  [Y](#y)  [Z](#z)
 
