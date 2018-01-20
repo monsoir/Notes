@@ -73,6 +73,9 @@
 - [上传下载 服务端Node.js / 客户端 iOS 编写](./UpDownload/index.md)
 - [使用 AVFoundation 进行视频录制](./使用%20AVFoundation%20进行视频录制.md)
 
+## 备忘
+
+- [细节上的备忘](./remark/remark.md)
 
 
 
