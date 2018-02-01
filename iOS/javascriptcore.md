@@ -142,7 +142,7 @@ self.context[@"innerLog"] = ^(NSString *logMsg) {
 
 ## References
 
-- [JavaScriptCore](https://www.raywenderlich.com/124075/javascriptcore-tutorial)
+- [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore)
 - [JavaScriptCore Tutorial for iOS: Getting Started](https://www.raywenderlich.com/124075/javascriptcore-tutorial)
 - [iOS JavaScriptCore使用](http://liuyanwei.jumppo.com/2016/04/03/iOS-JavaScriptCore.html)
 
