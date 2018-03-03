@@ -68,6 +68,7 @@ Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/b
 
 - [Python](https://github.com/Monsoir/Notes/blob/master/Python/index.md)
 - [PHP](./PHP/index.md)
+- [PostgreSQL](./PostgreSQL/index.md)
 
 ## R
 
