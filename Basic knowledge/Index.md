@@ -7,4 +7,5 @@
 - [非对称加密](./asym-crypt.md)
 - [SSH](./ssh.md)
 - [HTTPS 流程](./https.md)
+- [Ubuntu 上简单使用 Nginx](./use-nginx.md)
 
