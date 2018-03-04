@@ -111,5 +111,6 @@ server {
 ## References
 
 - [写给Web开发人员看的Nginx介绍](https://fraserxu.me/2013/06/22/Nginx-for-developers/)
+- [Nginx for Developers: An Introduction](http://carrot.is/coding/nginx_introduction)
 
 
