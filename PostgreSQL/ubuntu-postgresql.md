@@ -79,6 +79,23 @@ psql -d <another database name>
 \conninfo
 ```
 
+## 卸载
+
+先查看 PostgreSQL 都有安装了哪些包
+
+```sh
+dpkg -l | grep postgres
+```
+
+卸载
+
+```sh
+sudo apt-get --purge remove ****
+```
+
+- `purge` 移除包及其配置文件
+- `remove` 移除包
+
 ## References
 
 - [How To Install and Use PostgreSQL on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
