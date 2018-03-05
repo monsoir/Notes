@@ -54,6 +54,10 @@ Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/b
 - [JSON](./JSON/JSON.md)
 - [Jupyter Notebook](./Jupyter/index.md)
 
+## L
+
+- [Linux](./Linux/index.md)
+
 ## M
 
 - [Mac](./Mac/index.md)
