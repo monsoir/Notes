@@ -142,6 +142,15 @@ mysql -u root -p -e "GRANT ALL ON *.* TO 'alfred'@'localhost' IDENTIFIED BY 'Roo
 mysql -u root -p -e "SHOW GRANTS FOR 'alfred'@'localhost'\g"
 ```
 
+修改普通用户的密码
+
+```sh
+# 使用 root 登录
+mysql -u root -p
+
+mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+```
+
 ## Mac 上迁移数据库文件存储路径
 
 下面方法试用于使用 Homebrew 安装的 MySQL
