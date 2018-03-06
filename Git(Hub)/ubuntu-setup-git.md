@@ -150,6 +150,10 @@ git clone git@xxx.xxx.xxx.xxx:/home/.../test-project.git
 ## 配置公钥
 
 > 此方法还没成功，现时的结果是不需要输入服务器用户的密码，但需要输入公钥的加密 secret
+> 目前的解决方案有：
+> [http://blog.csdn.net/dreamstone_xiaoqw/article/details/78355873](http://blog.csdn.net/dreamstone_xiaoqw/article/details/78355873)
+> [https://ruby-china.org/topics/14182](https://ruby-china.org/topics/14182)
+> [https://ruby-china.org/topics/2693#reply2](https://ruby-china.org/topics/2693#reply2)
 
 但是，我们可以发现一个问题，每次 push 和 clone 的时候，都需要输入 git 的密码，非常繁琐，可以通过配置公钥来解决这个问题
 
