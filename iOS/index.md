@@ -15,7 +15,7 @@
 
 ### 线程
 
-- [多线程](https://github.com/Monsoir/Notes/blob/master/iOS/多线程.md)
+- [多线程](./multi-thread.md)
 
 ### 语言层
 

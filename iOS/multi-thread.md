@@ -1,5 +1,6 @@
 # 多线程
 [Link](http://www.infoq.com/cn/articles/os-x-ios-multithread-technology)
+[部分 Demo](https://github.com/pennyworthit/iOS-ThreadDemo.git)
 
 - [使用performSelectors前缀的方法](#使用performselectors前缀的方法)
 - [使用NSThread](#使用nsthread)
@@ -26,6 +27,26 @@
 - 需要自己管理线程声明周期，进行线程间同步：线程状态，依赖性，线程间同步
 - 线程间同步需用到：`NSLock`, `NSCondition`, `@synchronized`
 
+### 创建一个任务
+
+创建任务
+
+```objc
+NSThread *purchaseA = [[NSThread alloc] initWithTarget:self selector:@selector(run:) object:customerA];
+```
+
+- 通过 `selector` 参数指定任务（一个方法）
+- 通过 `object` 参数来指定任务的参数，对应地，任务方法需要修改其方法签名来接受参数
+- `target` 在线程执行期间会被线程持有，即引用计数加一，当线程退出后，`target` 才会被释放
+
+执行任务
+
+```objc
+[purchaseA start];
+```
+
+- 需要调用 `start` 方法，否则任务不会自动执行
+
 ## 使用NSOperation
 - 做的事情比 NSThread 多
 - 通过继承 `NSOperation`，可以使子类获得一些线程相关的特性，进而安全地管理线程的生命周期
@@ -43,6 +64,12 @@
 ## NSOperationQueue
 - 用于执行计算任务，管理计算任务的优先级，处理计算任务间的依赖性
 - NSOperation 被添加到 NSOperationQueue 后，队列按照 **优先级** 和 **进入顺序** 调度任务，NSOperation 自动执行
+
+更多地，`NSOperation` 将会与 `NSOperationQueue` 结合使用
+
+同样，`NSOperationQueue` 也可以通过 KVO 进行监听
+
+通过 `[self.operationQueue addOperations:operations waitUntilFinished:NO];` 可以一次添加多个任务，`waitUntilFinished` 用于指定是否阻塞当前线程，一般都是 `NO`
 
 ## 使用GCD
 - 在多核系统上高效运行并发代码，必用考虑繁琐的底层问题
@@ -115,10 +142,10 @@ _lock = [[NSLock alloc] init];
 - `dispatch_queue_t serialDispatchQueue = dispatch_queue_create("com.example.gcd.SerialDispatchQueue", NULL);`
 	- 生成串行队列时，将第二个参数指定为 `NULL`
 
-### 并行分发队列
-- 并行执行不发生数据竞争等问题时使用
+### 并发分发队列
+- 并发执行不发生数据竞争等问题时使用
 - `dispatch_queue_t concurrentDispatchQueue = dispatch_queue_create("com.example.gcd.ConcurrentDispatchQueue", DISPATCH_QUEUE_CONCURRENT);`
-	- 生成并行分发队列时，将第二个参数指定为 `DISPATCH_QUEUE_CONCURRENT`
+	- 生成并发分发队列时，将第二个参数指定为 `DISPATCH_QUEUE_CONCURRENT`
 
 ### 线程内存管理 
 - 尽管有 ARC 的存在，但生成的 Dispatch Queue 需要由开发者负责释放
@@ -302,7 +329,8 @@ dispatch_async(queue, readingBlock8);
 ```
 
 ### dispatch_barrier_async
-1. `dispatch_barrier_async` 函数会等待追加到并发队列上的并行执行的任务全部结束（如上面代码的  readingBlock1~4 ）
+
+1. `dispatch_barrier_async` 函数会等待追加到并发队列上的并发执行的任务全部结束（如上面代码的  readingBlock1~4 ）
 2. 将指定的处理（如上面代码 writingBlock ）追加到并发队列上
 3. 并发队列等待 2. 中的任务结束后，再恢复为一般的操作（继续并发执行，如继续执行上面代码的 readingBlock5~8 ）
 
@@ -336,15 +364,36 @@ dispatch_async(queue, readingBlock8);
 	- 在串行分派队列中执行
 
 		```objc
+		// begin
 		dispatch_queue_t queue = dispatch_queue_create("com.xxx.xxx.yyy", NULL);
 		dispatch_async(queue, ^{ // Task 1
 			dispatch_sync(queue, ^{
 				/* Do something */ // Task 2
 			});
+			// never be here
 		});
+		// end
 		```
 		
 		- ![Screen Shot 2016-08-29 at 23.49.39.png](http://ww3.sinaimg.cn/large/801b780agw1f7b1wkjwt5j219k0i4wgs.jpg)
+
+    ```
+    关于上图的解释，是这样的
+    
+    我们可以看作以下步骤
+    
+    1. 获取到了一个串行分发队列
+    2. 将 Task1 添加到 queue 里，至于 Task1 的执行，迟点
+    3. 流程继续向下走，到了 end, 流程结束了
+    
+    --- 好了，这时候，我要回过头来执行 Task1 了 ---
+    
+    1. 执行 Task1 的 Block, 发现这个操作是同步地将 Task2 添加到 queue 中并且执行
+    2. 将 Task2 添加到了 queue 中，但还要等 Task2 执行结束，Task1 才能继续向下走去到 `never be here` 的位置
+    3. 然而，queue 是串行的，Task1 都还没执行完，怎么能执行 Task2 呢？此时，Task1 又在等待 Task2 的结束
+
+    于是，互相等待，死锁出来了
+    ```
 
 	- 关于对死锁的更多例子与分析，[这个博客](http://www.superqq.com/blog/2015/10/16/five-case-know-gcd/) 很详细
 		- 分析重点就是，画出所设计的线程，并将对应的任务添加到相应的线程中，再进行可视化的分析，就很容易理解了
@@ -356,10 +405,12 @@ dispatch_async(queue, readingBlock8);
 使用情境：当 Dispatch Queue 追加了大量的任务后，希望不执行已追加的任务。
 
 ### dispatch_suspend
+
 - 挂起队列
 - `dispatch_suspend(theDispatchQueueToSuspend);`
 
 ### dispatch_resume
+
 - 恢复队列
 - `dispatch_resume(theDispatchQueueToResume);`
 
@@ -370,8 +421,10 @@ dispatch_async(queue, readingBlock8);
 - 挂起后，只有恢复才使得任务继续执行
 
 ## 线程同步的信号量
+
 - 解决数据竞争的又一办法 
 - Dispatch Semaphore 适合用于更细粒度的排他控制，Serial Dispatch Queue 与 dispatch_barrier_async 随意
+- 其实可以看成是用 GCD 实现的一个 `NSLock` 或 `NSCondition`
 
 ```objc
 // 这个书上的例子，目的是为了安全地向 array 中添加数据
@@ -529,5 +582,82 @@ for(int i = 0; i < 10000; i++) {
 // 取消定时操作
 dispatch_cancel(self.timer);
 ```
+
+## 线程同步
+
+### `NSLock` 线程同步
+
+```objc
+// 创建一把锁
+self.lock = [[NSLock alloc] init];
+
+// 加锁
+[self.lock tryLock];
+
+// 解锁
+[self.lock unlock];
+```
+
+- 多个任务，若这多个任务需要修改到同一个数据，必须使用同一个 `NSLock` 进行加锁解锁，否则，数据状态不会统一
+- 加锁与解锁，必须在同一个线程中进行，否则将出错或导致不可预知的行为
+- 加锁的时候，使用 `tryLock` 方法，实际使用中，`lock` 方法并不是那么可靠
+
+#### 线程与 RunLoop
+
+线程需要挂靠在一个 RunLoop 下才能完整地完成任务
+
+在 iOS 项目下，由于 iOS App 本身存在一个 RunLoop, 因此，如果 Demo 中的例子移植到 iOS 项目下跑，能够完整地完成
+
+在命令行工具项目下，由于并不存在 RunLoop, 因此，程序将会从 `main.c` 中一股脑子向下执行，并且执行 `return 0;`. 而由于多线程的执行是异步的，任务其实也是可以进行，但是并不能确定任务执行的完整度，即任务在执行的半路中，程序已经退出了，因此，任务并没有完整地完成
+
+于是，若要在命令行工具中，任务也能完成地完成，可以简单地在 `main.c` 的最后，`return 0;` 之上，添加一个死循环模拟 RunLoop, 当任务执行完成后，需要手动终止程序，否则 CPU 占用率会很高
+
+```objc
+// ...
+while (YES) {};
+return 0;
+```
+
+### `NSCondition` 线程同步
+
+`NSCondition` 既是一个锁，也是一个检查点(checkpoint)
+
+ - 即 `NSCondition` 内部含有一个类似 `NSLock` 的东西，用来保护数据的同步
+
+
+使用 `NSCondition` 的正确方法
+
+1. 为 condition 加锁
+2. 测试一个条件，判断是否能执行任务
+    - `false`, 不能执行任务，调用 `wait` 等方法阻塞当前线程，并循环检查条件
+    - `true`, 可以执行任务
+3. 有需要的话，更新任务执行的条件，并调用 `signal` 或 `boardcast` 方法发送信号
+4. 为 condition 解锁
+
+```objc
+// 创建一个 condition
+self.condiction = [[NSCondition alloc] init];
+
+// 为 condition 加锁
+[self.condiction lock];
+
+// 为 condition 解锁
+[self.condiction unlock];
+
+// 阻塞当前线程，等待信号发出后继续执行
+[self.condiction wait];
+
+// 向 condition 发送信号，唤醒一个等待的线程来执行任务
+[self.condiction signal];
+
+// 向 condition 发送信号，唤醒所有等待的线程来执行任务
+[self.condiction broadcast];
+```
+
+## 并发与并行的区别
+
+并发 concurrent 两条队共用一台咖啡机
+
+并行 parralle 两条队各用一台咖啡机
 
 
