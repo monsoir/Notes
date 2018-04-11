@@ -69,3 +69,11 @@ console.log('after modifiying: ' + d.payload); // function prototype modified
     - `prototype` 是当函数用作构造函数时，新建出来的实例的原型对象，具体打印出来，就是函数内部的各种属性和方法
     - `__proto__` 是函数本身的原型，也就是 `Function`
 
+---
+
+更新
+
+`__proto__` 是每个 JavaScript 对象都拥有的属性，包括函数，值是对应的原型对象（一个实例）
+
+`prototype` 只有函数才有的属性，创建函数时，自动添加 `prototype` 属性，同时，这个 `prototype` 对象的值也是一个对象，并包含了一个 `constructor` 方法属性。通过 `new` 进行调用时，就会调用这个 `constructor` 方法
+
