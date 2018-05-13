@@ -35,4 +35,10 @@
 - [React Native for Android](./react-native/react-native-for-android.md)
 - [React Native 中使用 TypeScript](./react-native/react-native-typescript.md)
 
+## 链接
+
+- 如何在 CRA 中使用 CSS module
+    - [How to Use CSS Modules with Create React App](https://medium.com/nulogy/how-to-use-css-modules-with-create-react-app-9e44bec2b5c2)
+- 如何在 TypeScript 中使用 CSS module
+    - [How to use CSS Modules with TypeScript and webpack](https://medium.com/@sapegin/css-modules-with-typescript-and-webpack-6b221ebe5f10)
 
