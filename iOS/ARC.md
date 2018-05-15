@@ -91,7 +91,7 @@ objc_release(obj);
 - objc_initWeak
 - objc_destroyWeak
 - objc_storeWeak
-	- 将 2nd 参数赋值对象的地址作为键(key)，将 __weak 修饰的 1st 参数的地址注册到 weak 表中
+	- 将 2nd 参数赋值对象的地址作为值(value)，将 __weak 修饰的 1st 参数的地址注册到 weak 表中(作为 key)
 	- 若 2nd 参数为 0，则将变量的地址从 weak 表中移除
 
 #### weak 表
