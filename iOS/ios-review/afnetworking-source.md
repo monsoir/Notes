@@ -139,4 +139,9 @@ __这个协议中的方法没有全部实现__
 @property (nonatomic, strong, nullable) dispatch_group_t completionGroup;
 ```
 
+### 单例对象
+
+- `url_session_manager_creation_queue` -> DISPATCH_QUEUE_SERIAL
+- `url_session_manager_processing_queue` -> DISPATCH_QUEUE_CONCURRENT
+- `url_session_manager_completion_group`
 
