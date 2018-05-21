@@ -19,14 +19,19 @@
 - [iOS中的主线程（Main Thread）与主队列（Main Queue）](http://blog.corneliamu.com/archives/74)
     - 对上一篇文章的一个中文补充
 
-## Python
+## Node.js
 
-- [Python 3 Module of the Week](https://pymotw.com/3/)
-    - 关于如何使用 Python 3 标准库的一系列文章与实例
+- [Switching from cluster module to PM2 & RabbitMQ in Node.js](https://medium.com/the-node-js-collection/switching-from-cluster-module-to-pm2-rabbitmq-in-node-js-d0cce5eb96f4)
+    - 如何使用 PM2 代替 cluster 模块
 
 ## React
 
 - [React 16 — What can it do for you?](https://blog.bitsrc.io/react-16-what-can-it-do-for-you-part-1-e2ee4b9022fb)
+
+## Python
+
+- [Python 3 Module of the Week](https://pymotw.com/3/)
+    - 关于如何使用 Python 3 标准库的一系列文章与实例
 
 ## 产品
 
