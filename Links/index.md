@@ -19,6 +19,11 @@
 - [iOS中的主线程（Main Thread）与主队列（Main Queue）](http://blog.corneliamu.com/archives/74)
     - 对上一篇文章的一个中文补充
 
+### Xcode
+
+- [HOW TO HIGHLIGHT YOUR TODOS, FIXMES, & ERRORS IN XCODE](https://krakendev.io/blog/generating-warnings-in-xcode)
+    - 在 Xcode 中添加自定义的提示
+
 ## Node.js
 
 - [Switching from cluster module to PM2 & RabbitMQ in Node.js](https://medium.com/the-node-js-collection/switching-from-cluster-module-to-pm2-rabbitmq-in-node-js-d0cce5eb96f4)
