@@ -28,6 +28,8 @@
 
 - [Switching from cluster module to PM2 & RabbitMQ in Node.js](https://medium.com/the-node-js-collection/switching-from-cluster-module-to-pm2-rabbitmq-in-node-js-d0cce5eb96f4)
     - 如何使用 PM2 代替 cluster 模块
+- [How to Watch for Files Changes in Node.js](http://thisdavej.com/how-to-watch-for-files-changes-in-node-js/)
+    - 使用 Node.js 检测文件变化
 
 ## React
 
