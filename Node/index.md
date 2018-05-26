@@ -9,6 +9,7 @@
 
 - [JWT 验证 Demo](./jwt-authentication-demo.md)
 - [Node App 部署](./node-app-deploy.md)
+- [使用 Node 搭建简单的 WebSocket 服务](./node-websocket.md)
 
 ## 链接
 
