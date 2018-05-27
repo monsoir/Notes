@@ -54,6 +54,8 @@
 
 - [GRATISOGRAPHY](https://gratisography.com)
     - 免费，可商用图片网站
+- [Cool Backgrounds](https://coolbackgrounds.io)
+    - 纯颜色背景图片
 
 ## 在线工具
 
