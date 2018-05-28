@@ -40,6 +40,13 @@
 - [Python 3 Module of the Week](https://pymotw.com/3/)
     - 关于如何使用 Python 3 标准库的一系列文章与实例
 
+## Redis
+
+- [Install and config Redis on Mac OS X via Homebrew](https://medium.com/@petehouston/install-and-config-redis-on-mac-os-x-via-homebrew-eb8df9a4f298)
+    - Redis 简单的安装使用方法
+    - 守护进程启动 `brew services start redis`
+    - 阻塞进程启动 `redis-server /usr/local/etc/redis.conf`
+
 ## 产品
 
 - [ProductHunt](https://www.producthunt.com)
