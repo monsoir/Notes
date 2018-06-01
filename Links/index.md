@@ -19,6 +19,11 @@
 - [iOS中的主线程（Main Thread）与主队列（Main Queue）](http://blog.corneliamu.com/archives/74)
     - 对上一篇文章的一个中文补充
 
+### 离屏渲染
+
+- [iOS 保持界面流畅的技巧](https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/)
+- [圆角卡顿刨根问底](http://awhisper.github.io/2016/03/12/滚动圆角卡顿刨根问底/)
+
 ### Xcode
 
 - [HOW TO HIGHLIGHT YOUR TODOS, FIXMES, & ERRORS IN XCODE](https://krakendev.io/blog/generating-warnings-in-xcode)
