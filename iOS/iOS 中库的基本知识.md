@@ -44,7 +44,7 @@
 
 链接时，不会复制，程序运行时又系统动态加载到内存，供程序调用。每个静态库，系统只会加载一次，供多个程序共用，节省内存
 
-**项目中使用了自制的动态库，不允许上架**
+~~**iOS 8 之前，项目中使用了自制的动态库，不允许上架**~~
 
 --- 
 
@@ -68,6 +68,18 @@ CPU 架构 | 机型
 armv7 | iPhone 3GS, 4s
 armv7s | iPhone 5, 5c
 arm64 | iPhone 5s, 6, 6s, 6s Plus
+
+---
+
+指令集是向下兼容的，只是新指令集在旧机器上的运行效率降低
+
+新建项目时，Build Settings -> Architectures 中的值为 Standard architectures, 含 armv7s, arm64
+
+Valid Architectures 指即将编译的指令集，默认为 armv7, armv7s, arm64
+
+Build Active Architecture Only 是否编译当前适用的指令集，一般 Debug 时为 YES, 能更快速高效调试程序，Release 时为 NO, 使 App 能在各种机器上以最高效率运行
+
+当打包时，由于 Build Active Architecture Only 在 Release 下为 NO, 所以会为 armv7, armv7s, arm64 三个指令集生成对应的代码，使得 ipa 的体积 * 3
 
 ---
 
