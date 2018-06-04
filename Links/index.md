@@ -85,6 +85,9 @@
     - 关于 iOS 设备，开发的一些文档查询
 - [iOSRes](http://iosres.com)
     - iOS 设备屏幕分辨率查询
+- [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)
+    - 官方设计规范
+    - 包括了图标大小的设定，不过需要找一下
 
 ### JavaScript
 
