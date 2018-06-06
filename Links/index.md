@@ -119,4 +119,6 @@
     - 免费 SMS 信息接收
 - [DevDocs API Documentation](https://devdocs.io)
     - API 文档查询
+- [The Full Stack Tech Interview](https://arnaudbrousseau.com/notes/tech-interviews.html)
+    - 全栈指南参考
 
