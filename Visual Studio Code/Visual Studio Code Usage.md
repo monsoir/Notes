@@ -61,7 +61,7 @@
 
 参考自 [👉 https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#virtual-environments](#https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#virtual-environments)
 
-## tab 切换快捷键设置
+## 快捷键设置
 
 在 keybinding.json 中添加设置
 
@@ -87,5 +87,15 @@
 { "key": "cmd+ctrl+2", "command": "workbench.action.focusSecondEditorGroup" },
 { "key": "cmd+ctrl+3", "command": "workbench.action.focusThirdEditorGroup" }
 ```
+
+### 弹出代码提示框
+
+当键入代码时，VSCode 可以自动弹出代码提示框，但一旦按下 Esc 键后，只能再次键入代码才能重新显示，或者使用默认的 `ctrl + space` 快捷键进行唤出
+
+但是，默认的 `ctrl + space` 被我设置成系统级别的快捷键
+
+因此，需要去到 `Keyboard Shortcuts` 设置中进行设置
+
+代码提示框的快捷键名称为 `Trigger Suggest`, 或者查找 `completion` 也可以找到
 
 
