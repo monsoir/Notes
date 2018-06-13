@@ -37,6 +37,7 @@ Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/b
 ## G
 
 - [Git(Hub)](https://github.com/Monsoir/Notes/blob/master/Git(Hub)/index.md)
+- [Go](./Go/index.md)
 
 ## H
 
