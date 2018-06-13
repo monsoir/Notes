@@ -78,6 +78,7 @@ Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/b
 
 - [Raspberry Pie](./RaspberryPie/index.md)
 - [React (Native)](./React/Index.md)
+- [Redis](./Redis/index.md)
 
 ## T
 
