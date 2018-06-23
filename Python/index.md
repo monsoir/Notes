@@ -31,6 +31,7 @@
 - [Python 邮件操作](./python-mail.md)
 - [Python 图像处理](./python-image.md)
 - [BeautifulSoup 使用方法](./beautifulsoup-basic.md)
+- [Mac 下 pyenv 的使用](./mac-pyenv.md)
 
 ## 未分类
 
