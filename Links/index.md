@@ -35,6 +35,8 @@
     - 如何使用 PM2 代替 cluster 模块
 - [How to Watch for Files Changes in Node.js](http://thisdavej.com/how-to-watch-for-files-changes-in-node-js/)
     - 使用 Node.js 检测文件变化
+- [Typescript ExpressJS API with webpack](https://medium.com/@Pierre_anthill/typescript-expressjs-api-with-webpack-4655126d884b)
+    - 使用 Webpack 对 Express + TypeScript 项目进行打包
 
 ## React
 
