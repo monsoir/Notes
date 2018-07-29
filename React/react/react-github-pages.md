@@ -67,3 +67,14 @@ npm run deploy
 
 发布命令完成之后，需要等待一阵子才能生效，立即访问 homepage，很有可能不会得到想要的结果
 
+## 注意点
+
+- 默认使用的是 origin 源，所以当 origin 不是 GitHub 地址时，需要更换一下
+
+### 可能出现的错误
+
+`A branch named 'gh-pages' already exists`
+
+- 解决方法 [https://github.com/transitive-bullshit/react-modern-library-boilerplate/issues/15](https://github.com/transitive-bullshit/react-modern-library-boilerplate/issues/15)
+- `rm -rf node_modules/gh-pages/.cache`
+
