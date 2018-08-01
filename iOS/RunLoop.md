@@ -103,7 +103,7 @@
 	- 每当 RunLoop 内容发生变化时，RunLoop 会自动将 _commonModeItems 里的 Source/Observer/Timer 同步到具有 "Common" 标记的所有Mode里
 - Apple 公开提供的 Mode，都被标记为 `Common` 属性
 	- kCFRunLoopDefaultMode(NSDefaultRunLoopMode)
-	- UITrackingRunLoopMode
+	- UITrackingRunLoopMode = [NSDefaultRunLoopMode, NSEventTrackingRunLoopMode]
 
 ## RunLoop内部逻辑
 
