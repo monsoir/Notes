@@ -18,10 +18,10 @@
 - iOS/OS X 系统中的
 	- CFRunLoopRef
 		- 位于 CoreFoundation 中
-		- 提供纯 C 函数 API，所有这些的 API 都 ==线程安全==
+		- 提供纯 C 函数 API，所有这些的 API 都 **线程安全**
 	- NSRunLoop
 		- 基于 CFRunLoopRef 的封装
-		- 提供面向对象的 API，这些 API ==不是线程安全== 的
+		- 提供面向对象的 API，这些 API **不是线程安全** 的
 
 ## RunLoop与线程
 
@@ -33,9 +33,9 @@
 	- CFRunLoopGetMain()
 	- CFRunLoopGetCurrent()
 - 线程与 RunLoop 一一对应，其关系保存在一个全局的 Dictionary 中
-	- 线程刚创建时 ==没有== RunLoop，需要主动获取才会有
+	- 线程刚创建时 **没有** RunLoop，需要主动获取才会有
 	- RunLoop 的创建发生在第一次获取时，销毁发生在线程结束
-	- ==只能== 在一个线程的内部获取其 RunLoop（主线程除外）
+	- **只能** 在一个线程的内部获取其 RunLoop（主线程除外）
 
 ## RunLoop对外的接口
 
@@ -50,7 +50,7 @@
 	- 每次调用 RunLoop 主函数时，只能限定其中一个 Mode (`currentMode`)
 	- 需要切换 Mode，只能退出 Loop，再进行 Mode 指定后进入
 	- 需要分割开不同组的 Source/Timer/Observer，让其互不影响
-	- Source/Timer/Observer 被统称为 ==mode item==
+	- Source/Timer/Observer 被统称为 **mode item**
 		- 一个 item 可被同时加入多个  mode
 		- 一个 item 被重复加入同一个 mode 不会有效果
 		- 一个 mode 中一个 item 都没有，则 RunLoop 直接退出，不进入循环
@@ -60,8 +60,8 @@
 	- Source 的两个版本
 		- Source0 & Source1
 		- Source0
-			- ==只包含== 一个回调（函数指针）
-			- ==不能主动触发事件==，需要
+			- **只包含** 一个回调（函数指针）
+			- **不能主动触发事件**，需要
 				- `CFRunLoopSourceSignal(source)` 将 Source 标记为待处理
 				- `CFRunLoopWakeUp(runloop)` 唤醒 RunLoop，让其处理事件
 		- Source1
@@ -120,8 +120,8 @@
 
 - AutoreleasePool
 	- App启动后，苹果在主线程 RunLoop 里注册了两个 Observer
-		1. ==监听== Entry（即将进入 Loop)，创建自动释放池
-		2. ==监听== BeforeWaiting（准备进入休眠），释放旧池并创建新池；==监听== Exit（即将退出 RunLoop），释放自动释放池
+		1. 监听 Entry（即将进入 Loop)，创建自动释放池
+		2. 监听 BeforeWaiting（准备进入休眠），释放旧池并创建新池；监听 Exit（即将退出 RunLoop），释放自动释放池
 
 - 事件响应
 	- 注册了一个 Source1 来接收系统事件，这里为硬件事件（触摸/锁屏/摇晃等）
