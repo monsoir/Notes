@@ -13,7 +13,9 @@
 
 直接复制，用于基本数据类型(NSInteger/CGFloat), C数据类型(int, float, double, char), 还有 `id` 类型
 
-不涉及内存管理，当 `assign` 修饰对象类型是，会导致内存泄漏或 `EXC_BAD_ACCESS` 错误
+不涉及内存管理，当 `assign` 修饰对象类型是，会导致内存泄漏或 `EXC_BAD_ACCESS`
+
+虽然 `assign` 与 `weak` 的含义接近，但 `assign` 一般修饰基本数据类型，`weak` 修饰对象类型，当 `weak` 修饰对象类型是，当对象被释放后，`weak` 会将变量自动置 `nil`, 而 `assign` 修饰时，变量的对象地址并不会发生变化，但对象却已经被释放了
 
 ![](media/15243651195699.jpg)
 
@@ -29,7 +31,7 @@
 
 ### copy
 
-主要用于 `NSString` 类型，用于复制内容
+主要用于 `NSString` 类型，用于复制内容，复制行为取决于 `- (id)copyWithZone:(NSZone *)zone` 的实现
 
 ## 原子性修饰符
 - `atomic`
@@ -63,7 +65,7 @@
 
 Objective-C 对象 `atomic` + `readwrite` + `strong`
 
-# @Property 的本质
+# @property 的本质
 
 > @property = ivar + getter + setter
 
