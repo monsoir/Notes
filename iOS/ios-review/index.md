@@ -1,6 +1,6 @@
 # iOS
 
-- [@property 后面可以有哪些修饰符](./property.md)
+- [@property 后面可以有哪些修饰符](./property-keywords.md)
 - [NSString 内存管理](./nsstring-memory.md)
 - [UIControl](./uicontrol.md)
 - [UIResponder](./uiresponder.md)

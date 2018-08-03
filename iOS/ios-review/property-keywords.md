@@ -1,4 +1,4 @@
-# @property 后面可以有哪些修饰符
+# @property 修饰符
 
 ## 读写性
 - `readwrite`
