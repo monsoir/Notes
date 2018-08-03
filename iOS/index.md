@@ -27,6 +27,7 @@
 - [Swift 使用上的不同](./about-swift.md)
 - [Block](./block.md)
 - [NSTimer](./timer.md)
+- [对象间通信](./communication-way.md)
 
 ### Frameworks
 
