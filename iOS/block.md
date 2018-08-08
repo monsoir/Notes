@@ -97,6 +97,14 @@ _NSConcreteStackBlock | 栈 | 从栈复制到堆
 _NSConcreteGlobalBlock | 程序数据区域 .data | 什么也不做
 _NSConcreteMallocBlock | 堆 | 引用计数增加
 
+### 对 Block 中引用到的变量，需要进行修改时，为什么需要使用 __block
+
+简单说：
+
+一般来说，block 定义在某个作用内，此时，block 分配到栈上，而变量也会分配到栈上。而 block 使用到的变量值，只是变量的一个副本，因此可以读取到。
+
+而当调用 block 去修改变量值时，由于已经逃出了定义变量的作用域，所以无法修改到变量值。而使用 `__block` 修饰符后，block 将会使用指针引用这个变量
+
 
 
 
