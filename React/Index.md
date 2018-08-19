@@ -8,6 +8,7 @@
 - [将 React 项目部署到 GitHub Pages](./react/react-github-pages.md)
 - [遵守 React 内置的 ESLint 规则](./react/react-eslint-rules.md)
 - [React 简单的服务器渲染例子](./react/react-ssr.md)
+- [React 组件生命周期](./react/react-life-cycle.md)
 
 ### Webpack
 
