@@ -9,6 +9,7 @@
 - [遵守 React 内置的 ESLint 规则](./react/react-eslint-rules.md)
 - [React 简单的服务器渲染例子](./react/react-ssr.md)
 - [React 组件生命周期](./react/react-life-cycle.md)
+- [React 代码分割](./react/react-code-splitting.md)
 
 ### Webpack
 
