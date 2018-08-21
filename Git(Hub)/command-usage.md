@@ -27,6 +27,20 @@ git add .
 git status
 ```
 
+### 设置仓库用户信息
+
+```shell
+# 全局设置
+git config --global user.name <user name>
+git config --global user.email <user email>
+git config --list
+
+# 局部设置
+git config user.name <user name>
+git config user.email <user email>
+git config --list
+```
+
 ### 查看 commit 记录
 
 ```shell
