@@ -10,4 +10,5 @@
 - [Ubuntu 上简单使用 Nginx](./use-nginx.md)
 - [关于 JWT 的安全问题](./jwt-security.md)
 - [WebSocket 基本概念](./websocket.md)
+- [浏览器是如何工作的](./how-browsers-work.md)
 
