@@ -8,15 +8,15 @@
 
 加载时
 
-![](./assets/code-splitting/code-splitting-loading.png)
+![](./assets/code-splitting-content/code-splitting-loading.png)
 
 加载完成
 
-![](./assets/code-splitting/code-splitting-content.png)
+![](./assets/code-splitting-content/code-splitting-content.png)
 
 ## 文件目录
 
-![](./assets/code-splitting/code-structure.png)
+![](./assets/code-splitting-content/code-structure.png)
 
 - Loading 文件夹存放加载占位 view
 - Content 文件夹存放了按需加载的组件
@@ -31,7 +31,7 @@ import Content from './Content';
 export default Content;
 ```
 
-![](./assets/code-splitting/not-code-splitting.png)
+![](./assets/code-splitting-content/not-code-splitting-result.png)
 
 从上面的结果可以看到
 
@@ -48,7 +48,7 @@ export default Loadable({
 });
 ```
 
-![](./assets/code-splitting/do-code-splitting.png)
+![](./assets/code-splitting-content/do-code-splitting-result.png)
 
 从上面的结果可以看到
 
