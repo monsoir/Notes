@@ -10,6 +10,7 @@
 - [React 简单的服务器渲染例子](./react/react-ssr.md)
 - [React 组件生命周期](./react/react-life-cycle.md)
 - [React 代码分割](./react/react-code-splitting.md)
+- [React 使用 react loadable 进行代码分割实践](./react/react-code-splitting-in-action.md)
 
 ### Webpack
 
