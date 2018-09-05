@@ -8,6 +8,7 @@
 ## 前端构建
 
 - [构建简单的脚手架 React](./create-boilerplate.md)
+- [构建命令行工具](./build-command-line-tool.md)
 
 ## 实践
 
