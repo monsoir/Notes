@@ -9,6 +9,7 @@
 
 - [构建简单的脚手架 React](./create-boilerplate.md)
 - [构建命令行工具](./build-command-line-tool.md)
+- [徒手配置 React 与 Webpack 组合](./webpack-with-react.md)
 
 ## 实践
 
