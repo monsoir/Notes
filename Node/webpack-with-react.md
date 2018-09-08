@@ -258,3 +258,140 @@ export default class App extends React.Component {
 
 执行 `npm run build`, 可以观察到 build 文件夹中的内容发生了变化
 
+### 创建 HTML 模版
+
+前面的工作只是使用了 Webpack 成功将 JS 相关文件打包，但其实并不能在浏览器上显示出内容，要在浏览器上显示出内容，则需要一个 HTML 的骨架
+
+在 `public` 文件夹下创建一个 `index.html` 文件，用于存放整个 App 的 HTML 骨架
+
+```html
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>An App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+> 这个模版代码，实际上是从 create-react-app 中截取过来的
+
+之前提及过，Webpack 只支持 JS 代码，因此，对于 HTML 这类静态文件，是需要安装额外的工具进行处理的，这里的额外的工具，在 Webpack 中指的是 plugin 插件
+
+> loader 与 plugin 的区别
+> 
+> loader: 通常只是针对一个文件的处理
+> plugin: 通常是对多个文件的综合处理
+
+这里，用来处理 HTML 文件的插件是 [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+
+HtmlWebpackPlugin 会自动对 HTML 的重复工作，如 JavaScript 资源的引用，每次我们重新编译 JS 文件后，文件名可能会发生变化，而 HtmlWebpackPlugin 则会自动对资源进行正确处理
+
+#### Webpack 配置
+
+安装 HtmlWebpackPlugin
+
+```sh
+npm install -D html-webpack-plugin
+```
+
+在 Webpack 配置中，我们使用 `plugins` 属性进行配置，注意是复数的 plugin
+
+```diff
+const path = require('path');
++ const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const rootPath = path.join(__dirname, '..');
+const publicPath = path.join(rootPath, 'public');
+
+module.exports = {
+  entry: path.join(rootPath, 'src/index.js'),
+  output: {
+    filename: '[name].[hash].js',
+    path: path.join(rootPath, 'build'),
+    publicPath,
+  },
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/env', '@babel/react'],
+          },
+        },
+        exclude: [
+          path.join(rootPath, 'node_modules'),
+        ],
+      },
+    ],
+  },
++ plugins: [
++   new HtmlWebpackPlugin({
++     title: 'An App', // HTML 的 title
++     template: path.join(rootPath, 'public', 'index.html'), // 生成 HTML 的模版路径
++     inject: true, // 传入 true 时，会将 JS 资源自动插入到 <body> 的最后，默认为 true
++   }),
++ ],
+};
+```
+
+此时，运行 `npm run build`, 会发现 `build` 文件夹除了多出打包后的 JS 文件，还有 `index.html`, 其中的内容是：
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>An App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  <script type="text/javascript" src="absolute/path/to/public/main.759ba7003e718a6729f3.js"></script></body>
+</html>
+```
+
+somehow, 这个 JS 资源文件使用了绝对路径，在浏览器中直接打开 `build/index.html` 只会得到空白一片，但后来发现，将 Webpack 配置文件中的 `publicPath` 注释后，得到了一个相对路径，并且工作正常
+
+```diff
+...
+entry: path.join(rootPath, 'src/index.js'),
+output: {
+  filename: '[name].[hash].js',
+  path: path.join(rootPath, 'build'),
+- publicPath,
++ // publicPath,
+},
+mode: 'development',
+...
+```
+
+得到的结果便是
+
+![](https://ws4.sinaimg.cn/large/006tNbRwgy1fv2dw87qxgj30s608wq3t.jpg)
+
+就是之前在 `App.jsx` 中的
+
+```jsx
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>An App</div>
+    );
+  }
+}
+```
+
