@@ -12,6 +12,12 @@
 - [徒手配置 React 与 Webpack 组合](./webpack-with-react.md)
 - [自动清理打包文件](./webpack-auto-clean-build.md)
 
+[Demo](https://github.com/pennyworthit/react-webpack-from-0) 及其分支重点，分先后顺序
+
+1. master & basic 构建项目，编写最基本的 Webpack 配置
+2. integrate-react 引入 React, 并在浏览器中运行最简单的 React, 引入了 `html-webpack-plugin` 插件
+3. auto-clean-build 使用 `clean-webpack-plugin` 实现构建前自动清理
+
 ## 实践
 
 - [JWT 验证 Demo](./jwt-authentication-demo.md)
