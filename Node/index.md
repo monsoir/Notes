@@ -22,6 +22,7 @@
 4. 代码分割
     - code-splitting 进行了简单的代码分割配置
     - code-splitting-default 使用 Webpack 默认的代码分割配置，之后的分支都基于这个分支上进行
+5. hot-dev 开发时的热更新与 HMR 开启
 
 ## 实践
 
