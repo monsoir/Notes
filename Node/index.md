@@ -12,6 +12,7 @@
 - [徒手配置 React 与 Webpack 组合](./webpack-with-react.md)
 - [自动清理打包文件](./webpack-auto-clean-build.md)
 - [代码分割](./webpack-code-splitting.md)
+- [开发时热更新](./webpack-hot-dev.md)
 
 [Demo](https://github.com/pennyworthit/react-webpack-from-0) 及其分支重点，分先后顺序
 
@@ -20,6 +21,7 @@
 3. auto-clean-build 使用 `clean-webpack-plugin` 实现构建前自动清理
 4. 代码分割
     - code-splitting 进行了简单的代码分割配置
+    - code-splitting-default 使用 Webpack 默认的代码分割配置，之后的分支都基于这个分支上进行
 
 ## 实践
 
