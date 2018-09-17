@@ -13,6 +13,7 @@
 - [自动清理打包文件](./webpack-auto-clean-build.md)
 - [代码分割](./webpack-code-splitting.md)
 - [开发时热更新](./webpack-hot-dev.md)
+- [样式的支持](./webpack-style-support.md)
 
 [Demo](https://github.com/pennyworthit/react-webpack-from-0) 及其分支重点，分先后顺序
 
@@ -23,6 +24,7 @@
     - code-splitting 进行了简单的代码分割配置
     - code-splitting-default 使用 Webpack 默认的代码分割配置，之后的分支都基于这个分支上进行
 5. hot-dev 开发时的热更新与 HMR 开启
+6. style-support 样式的支持 css 与 less
 
 ## 实践
 
