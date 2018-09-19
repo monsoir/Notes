@@ -110,4 +110,97 @@ module: {
 
 ![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv95p9fou6j30n4068gm7.jpg)
 
+## 导出 CSS 文件
+
+到上面为止，已经可以向页面添加 CSS 了
+
+但执行 `npm run build` 后可以看到，`build` 文件夹只有 JS 文件，并没有 CSS 文件，因为 CSS 样式直接写入了 JS 中
+
+> 由于 CSS 直接写在了 JS 中，因此这里猜测，这样的做法也可能会导致浏览器的加载页面的速度下降
+
+若我们向要将 CSS 导出成文件，则需要在 Webpack 中使用插件 plugin [`mini-css-extract-plugin`](https://webpack.js.org/plugins/mini-css-extract-plugin/)
+
+安装
+
+```sh
+npm i -D mini-css-extract-plugin
+```
+
+配置
+
+```diff
+...
+const webpack = require('webpack');
++ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+...
+
+module.exports = {
+  ...
+  module: {
+    rules: [
+      ...
+      {
+        test: /\.css$/,
+-       use: ['style-loader', 'css-loader'],
++       use: [
++         MiniCssExtractPlugin.loader,
++         'css-loader',
++       ],
+      },
+    ],
+  },
+  plugins: [
+    ...
+    new webpack.HotModuleReplacementPlugin(),
++   new MiniCssExtractPlugin({
++     filename: 'css/[name].[hash].css',
++     chunkFilename: 'css/[id].[hash].css',
++   }),
+  ],
+  ...
+};
+```
+
+配置完成后，执行 `npm run build` 后，可以看到，`build` 目录下生成了 `css` 目录，并且其下包含了 CSS 文件
+
+
+## 压缩 CSS
+
+Webpack 对于 CSS 是没有自动压缩的操作，要压缩 CSS, 需要使用插件 [`optimize-css-assets-webpack-plugin`](https://github.com/NMFR/optimize-css-assets-webpack-plugin)
+
+安装
+
+```sh
+npm i -D optimize-css-assets-webpack-plugin
+```
+
+配置
+
+```diff
+...
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
++ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+...
+
+module.exports = {
+  ...
+  
+- mode: 'development',
++ mode: 'production',
+
+  ...
+
++ optimization: {
++   minimizer: [
++     new OptimizeCssAssetsPlugin(),
++   ],
++ },
+};
+```
+
+- optimize-css-assets-webpack-plugin 需要在 [`optimization.minimizer`](https://webpack.js.org/configuration/optimization/#optimization-minimizer) 中使用，并且提供了 5 中选项，都是可选
+- 故名思义，optimization 是优化，一般都只会在 `production` 环境中才会出发，因此，需要将 `mode` 更改为 `production` 才会开启 CSS 压缩
 
