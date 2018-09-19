@@ -16,6 +16,10 @@
 - [样式的支持：添加样式，样式文件分离，样式文件压缩](./webpack-style-support.md)
 - [样式的进一步处理：CSS 模块化，支持 SCSS, 支持 PostCSS](./webpack-style-support-advance.md)
 
+善后工作
+
+- [分拆 Webpack 配置](./webpack-config-merge.md)
+
 [Demo](https://github.com/pennyworthit/react-webpack-from-0) 及其分支重点，分先后顺序
 
 1. master & basic 构建项目，编写最基本的 Webpack 配置
@@ -27,6 +31,7 @@
 5. hot-dev 开发时的热更新与 HMR 开启
 6. style-support 支持 CSS, CSS 文件导出，CSS 代码压缩 
 7. style-support-2 支持 CSS 模块化，支持 SCSS, 支持 PostCSS
+8. webpack-config-merge 分拆 Webpack 配置
 
 ## 实践
 
