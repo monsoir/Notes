@@ -9,7 +9,10 @@
 
 - [构建简单的脚手架 React](./create-boilerplate.md)
 - [构建命令行工具](./build-command-line-tool.md)
-- [徒手配置 React 与 Webpack 组合](./webpack-with-react.md)
+
+### 徒手配置 React 与 Webpack 组合
+
+- [基础配置](./webpack-with-react.md)
 - [自动清理打包文件](./webpack-auto-clean-build.md)
 - [代码分割](./webpack-code-splitting.md)
 - [开发时热更新](./webpack-hot-dev.md)
