@@ -23,6 +23,7 @@
 
 - [分拆 Webpack 配置](./webpack-config-merge.md)
 - [配置 eslint 语法检测](./integrate-with-eslint.md)
+- [配置源代码查看，调试](./integrate-source-map.md)
 
 [Demo](https://github.com/pennyworthit/react-webpack-from-0) 及其分支重点，分先后顺序
 
@@ -37,6 +38,7 @@
 7. style-support-2 支持 CSS 模块化，支持 SCSS, 支持 PostCSS
 8. webpack-config-merge 分拆 Webpack 配置
 9. integrate-eslint 配置 eslint 语法检测
+10. source-map 配置开发环境下的源代码查看配置
 
 ## 实践
 
