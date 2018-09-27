@@ -38,6 +38,10 @@
 - [React Native for Android](./react-native/react-native-for-android.md)
 - [React Native 中使用 TypeScript](./react-native/react-native-typescript.md)
 
+## Common
+
+- [🔧 非一级页面刷新返回 404](./react/refresh-get-404.md)
+
 ## 链接
 
 - 如何在 CRA 中使用 CSS module
