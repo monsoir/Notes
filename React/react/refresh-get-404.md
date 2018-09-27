@@ -26,7 +26,9 @@ http://localhost:8080/css/main.a502def00f686dbcd16a.css
 
 ---
 
-最简单的做法，在 `index.html` 中使用
+## 方法一
+
+在 `index.html` 中使用
 
 ```diff
 <head>
@@ -40,4 +42,20 @@ http://localhost:8080/css/main.a502def00f686dbcd16a.css
 ```
 
 > HTML <base> 元素 指定用于一个文档中包含的所有相对URL的基本URL。一份中只能有一个<base>元素
+
+## 方法二
+
+其实是后来发现配有配置 Webpack 配置文件中的 `output.public`, 所以就配置起来吧
+
+```js
+
+const publicPath = '/';
+
+output: {
+  filename: 'static/js/[name].[hash].js',
+  chunkFilename: 'static/js/[name].[hash].chunk.js',
+  path: buildPath,
+  publicPath,
+},
+```
 
