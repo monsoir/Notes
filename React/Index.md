@@ -16,6 +16,7 @@
 
 - [Webpack + React 搭建工程](./react/webpack-react-project.md)
 - [Webpack 基本了解](./react/webpack-basic.md)
+- [Webpack 构建速度优化](./react/webpack-build-optimize.md)
 
 ### React-Redux
 
