@@ -11,4 +11,5 @@
 - [JavaScript 类型转换内置方法](./javascript-built-in-type-coercion.md)
 - [JavaScript 中对象的装箱与拆箱](./javascript-boxing.md)
 - [JavaScript try...finally](./javascript-try-catch.md)
+- [JavaScript Promise 控制](./javascript-promise-control.md)
 
