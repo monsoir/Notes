@@ -12,5 +12,6 @@
 - [JavaScript 中对象的装箱与拆箱](./javascript-boxing.md)
 - [JavaScript try...finally](./javascript-try-catch.md)
 - [JavaScript Promise 构造器 API](./javascript-promise-constructor.md)
+- [JavaScript Promise 处理方法](./javascript-promise-api.md)
 - [JavaScript Promise 控制](./javascript-promise-control.md)
 
