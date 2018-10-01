@@ -81,3 +81,23 @@ ssh -T git@xxx.com
 
 最后，连接成功，就会出现成功连接，欢迎的字样
 
+## 补充
+
+有时候，进行连接时会报出错误
+
+```
+git@github.com: Permission denied (publickey).
+```
+
+此时，我们还是需要将私钥文件添加到 ssh-key 中
+
+```sh
+ssh-add path/to/ssh/private-key/file
+```
+
+可以通过以下命令查看添加了哪些撕咬文件
+
+```sh
+ssh-add -l
+```
+
