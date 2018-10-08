@@ -43,6 +43,7 @@
 
 - [构建简单的脚手架 React](./react/create-boilerplate.md)
 - [构建命令行工具](./react/build-command-line-tool.md)
+- [简单的自动化构建与发布](./react/simple-auto-build-publish.md)
 
 ### 徒手配置 React 与 Webpack 组合
 
