@@ -15,4 +15,5 @@
 - [JavaScript Promise 处理方法](./javascript-promise-api.md)
 - [JavaScript Promise 控制](./javascript-promise-control.md)
 - [JavaScript Generator 语法](./javascript-generator-grammar.md)
+- [JavaScript Generator 工作流程](./javascript-generator-workflow.md)
 
