@@ -16,4 +16,5 @@
 - [JavaScript Promise 控制](./javascript-promise-control.md)
 - [JavaScript Generator 语法](./javascript-generator-grammar.md)
 - [JavaScript Generator 工作流程](./javascript-generator-workflow.md)
+- [JavaScript Generator 消息传递系统](./javascript-generator-argument-communicate.md)
 
