@@ -17,4 +17,5 @@
 - [JavaScript Generator 语法](./javascript-generator-grammar.md)
 - [JavaScript Generator 工作流程](./javascript-generator-workflow.md)
 - [JavaScript Generator 消息传递系统](./javascript-generator-argument-communicate.md)
+- [JavaScripot Generator 在异步中的使用](./javascript-generator-async.md)
 
