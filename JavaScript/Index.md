@@ -18,4 +18,6 @@
 - [JavaScript Generator 工作流程](./javascript-generator-workflow.md)
 - [JavaScript Generator 消息传递系统](./javascript-generator-argument-communicate.md)
 - [JavaScripot Generator 在异步中的使用](./javascript-generator-async.md)
+- [JavaScript Web Worker](./javascript-web-worker.md)
+
 
