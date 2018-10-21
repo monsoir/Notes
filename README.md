@@ -21,7 +21,7 @@ Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/b
 
 ## C
 
-- [CSS](./CSS/css-mark.md)
+- [CSS](./CSS/index.md)
 - [Chrome](./Chrome/Index.md)
 
 ## D
