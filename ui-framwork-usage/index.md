@@ -2,5 +2,5 @@
 
 # Ant Design
 
-- 使用 Form 包含的组件 A (即使用 `Form.create()(A)` 进行包裹后), 当其作为组件 B 的子组件，B 并不能访问 A 中的方法，A 中暴露的方法都为 Form 中的方法
+- [Form 包含组件带来的问题](./form-component-problem.md)
 
