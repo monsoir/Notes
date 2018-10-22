@@ -8,6 +8,7 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "module": "commonjs",
     "allowSyntheticDefaultImports": false,
     "jsx": "react",
     "baseUrl": ".",
@@ -22,6 +23,7 @@
 
 最重要的几点 
 
+- `module`, 设置模块化的组织，使用 `commonjs` 可以让 vscode 自动跳转到 `index.js` 文件
 - `jsx`, 对于识别 React 组件的源文件不可少
 - `baseURL`, 起始路径
 - `paths`, 配置在 Webpack 配置文件中重命名的路径
