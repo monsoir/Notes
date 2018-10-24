@@ -67,6 +67,14 @@ class AComponent extends Component {
     
     console.log(this.props.convertObj2QueryString(params));
   }
+  
+  render() {
+    return (...);
+  }
 }
+
+export default WithQueryString(AComponent);
 ```
+
+- 最后需要通过 `WithQueryString` 方法将组件包装后再 export
 
