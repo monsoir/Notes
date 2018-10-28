@@ -23,7 +23,7 @@
 - [JavaScripot Generator 在异步中的使用](./javascript-generator-async.md)
 - [JavaScript Web Worker](./javascript-web-worker.md)
 
-## 事件
+## 实践
 
 - [使用 JavaScript 实现笛卡尔积计算](./javascript-cartesian-product.md)
 
