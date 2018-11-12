@@ -6,5 +6,6 @@
 ## Go 语法
 
 - [包](./go-grammar-package.md)
+- [函数](./go-grammar-function.md)
 
 
