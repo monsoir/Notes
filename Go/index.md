@@ -10,4 +10,5 @@
 - [变量](./go-grammar-variable.md)
 - [基本类型](./go-grammar-basic-type.md)
 - [零值](./go-grammar-zero-value.md)
+- [类型转换](./go-grammar-type-casting.md)
 
