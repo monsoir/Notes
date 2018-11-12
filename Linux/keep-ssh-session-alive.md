@@ -21,7 +21,7 @@ ClientAliveCountMax 1
 最后，重启 ssh 服务
 
 ```sh
-sudo restart service ssh restart
+sudo service ssh restart
 ```
 
 ## 客户端
