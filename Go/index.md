@@ -8,5 +8,6 @@
 - [包](./go-grammar-package.md)
 - [函数](./go-grammar-function.md)
 - [变量](./go-grammar-variable.md)
+- [基本类型](./go-grammar-basic-type.md)
 
 
