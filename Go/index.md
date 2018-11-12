@@ -7,5 +7,6 @@
 
 - [包](./go-grammar-package.md)
 - [函数](./go-grammar-function.md)
+- [变量](./go-grammar-variable.md)
 
 
