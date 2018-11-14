@@ -13,4 +13,5 @@
 - [类型转换](./go-grammar-type-casting.md)
 - [常量](./go-grammar-constant.md)
 - [流程控制](./go-flow-control.md)
+- [指针](./go-pointer.md)
 
