@@ -14,4 +14,5 @@
 - [常量](./go-grammar-constant.md)
 - [流程控制](./go-flow-control.md)
 - [指针](./go-pointer.md)
+- [结构体](./go-struct.md)
 
