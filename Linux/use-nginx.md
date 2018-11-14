@@ -48,7 +48,7 @@ URL 的匹配
 ```
 server {
     listen 80;
-    server_name example.com
+    server_name example.com;
 }
 ```
 
@@ -61,8 +61,8 @@ server {
 ```
 server {
     listen 80;
-    server_name example.com
-    root /var/www/exmaple
+    server_name example.com;
+    root /var/www/exmaple;
 }
 ```
 
@@ -74,8 +74,8 @@ server {
 ```
 server {
     listen 80;
-    server_name example.com
-    root /var/www/exmaple
+    server_name example.com;
+    root /var/www/exmaple;
     
     location / { # 正则表达式匹配
         try_files $uri $uri/ index.html;
@@ -88,8 +88,8 @@ server {
 ```
 server {
     listen 80;
-    server_name example.com
-    root /var/www/exmaple
+    server_name example.com;
+    root /var/www/exmaple;
     
     location = / { # 字符串完全匹配
     
