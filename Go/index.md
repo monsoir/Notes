@@ -15,4 +15,6 @@
 - [流程控制](./go-flow-control.md)
 - [指针](./go-pointer.md)
 - [结构体](./go-struct.md)
+- [数组](./go-array.md)
+- [切片](./go-slice.md)
 
