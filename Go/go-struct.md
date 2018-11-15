@@ -47,3 +47,16 @@ func main() {
 }
 ```
 
+## 创建结构体实例
+
+```go
+type Vertex struct {
+	X, Y int
+}
+
+var v1 = Vertex{1, 2}
+var v2 = Vertex{X: 1} // Y 默认为 0
+var v3 = Vertex{} // X, Y 都默认为 0
+var p = $Vertex{1, 2} // p 是一个指向 Vertex 类型的指针
+```
+
