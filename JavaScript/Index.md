@@ -23,6 +23,20 @@
 - [JavaScripot Generator 在异步中的使用](./javascript-generator-async.md)
 - [JavaScript Web Worker](./javascript-web-worker.md)
 
+## JavaScript 面向对象精要
+
+- 理解对象
+    - [属性定义](./object-oriented-in-javascript/js-property-define.md)
+    - [属性探测](./object-oriented-in-javascript/js-detect-property.md)
+    - [删除属性](./object-oriented-in-javascript/js-delete-property.md)
+    - [属性枚举](./object-oriented-in-javascript/js-property-enumerate.md)
+    - [属性类型](./object-oriented-in-javascript/js-property-type.md)
+    - [属性特征](./object-oriented-in-javascript/js-property-descriptor.md)
+    - 禁止修改对象
+        - [禁止扩展](./object-oriented-in-javascript/js-forbid-extend-object.md)
+        - [对象封印](./object-oriented-in-javascript/js-seal-object.md)
+        - [对象冻结](./object-oriented-in-javascript/js-freeze-object.md)
+
 ## 实践
 
 - [使用 JavaScript 实现笛卡尔积计算](./javascript-cartesian-product.md)
