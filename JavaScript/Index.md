@@ -37,6 +37,8 @@
         - [对象封印](./object-oriented-in-javascript/js-seal-object.md)
         - [对象冻结](./object-oriented-in-javascript/js-freeze-object.md)
 
+- [构造函数](./object-oriented-in-javascript/js-constructor.md)
+
 ## 实践
 
 - [使用 JavaScript 实现笛卡尔积计算](./javascript-cartesian-product.md)
