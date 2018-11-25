@@ -41,6 +41,7 @@
 - 原型对象
     - [原型对象介绍](./object-oriented-in-javascript/js-prototype.md)
     - [`[[Prototype]]` 属性](./object-oriented-in-javascript/js-prototype-property.md)
+    - [在构造函数上操作原型对象](./object-oriented-in-javascript/js-setting-prototype.md)
 
 ## 实践
 
