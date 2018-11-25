@@ -40,6 +40,7 @@
 - [构造函数](./object-oriented-in-javascript/js-constructor.md)
 - 原型对象
     - [原型对象介绍](./object-oriented-in-javascript/js-prototype.md)
+    - [`[[Prototype]]` 属性](./object-oriented-in-javascript/js-prototype-property.md)
 
 ## 实践
 
