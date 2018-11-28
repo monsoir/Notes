@@ -43,9 +43,9 @@ console.log(target.a); // undefined, a 未定义
 console.log(target.b); // undefined, b 未定义
 
 const handler = {
-	get: function(obj, prop) {
-		return prop in obj ? obj[prop] : 1000
-	},
+  get: function(obj, prop) {
+    return prop in obj ? obj[prop] : 1000
+  },
 };
 
 const aProxy = new Proxy(target, handler);
@@ -59,21 +59,23 @@ console.log(aProxy.b); // 1000, b 还是未定义，但还是有值出来了
 
 给一个对象赋值时，需要根据一定条件进行赋值，此时，一般的做法在赋值语句周边写各种条件判断，但我们也可以将这些判断条件融合到赋值操作中，即我们调用时，只管赋值，不管条件是否满足
 
+下面例子，向 target 对象赋值，成功赋值的情况只有新值不大于 200, 大于 200 或者新值类型不是数字类型的情况，将抛出异常
+
 ```js
 const handler = {
-	set: function(obj, prop, value) {
-		if (prop === 'a') {
-			if (!Number.isInteger(value)) throw new TypeError("value should be a Number type");
-			if (value > 200) throw new RangeError("value should be less than 200");
-		}
-		
-		obj[prop] = value;
-		return true;
-	},
+  set: function(obj, prop, value) {
+    if (prop === 'a') {
+      if (!Number.isInteger(value)) throw new TypeError("value should be a Number type");
+      if (value > 200) throw new RangeError("value should be less than 200");
+    }
+	
+    obj[prop] = value;
+    return true;
+  },
 };
 
 const target = {
-	a: 0,
+  a: 0,
 };
 
 const aProxy = new Proxy(target, handler);
