@@ -47,6 +47,7 @@
 - 继承
 
     - [JavaScript 的继承机制](./object-oriented-in-javascript/js-inheritance-mechanism.md)
+    - [对象继承](./object-oriented-in-javascript/object-inheritance.md)
 
 ## 实践
 
