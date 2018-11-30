@@ -44,6 +44,10 @@
     - [`[[Prototype]]` 属性](./object-oriented-in-javascript/js-prototype-property.md)
     - [在构造函数上操作原型对象](./object-oriented-in-javascript/js-setting-prototype.md)
 
+- 继承
+
+    - [JavaScript 的继承机制](./object-oriented-in-javascript/js-inheritance-mechanism.md)
+
 ## 实践
 
 - [使用 JavaScript 实现笛卡尔积计算](./javascript-cartesian-product.md)
