@@ -4,6 +4,7 @@
 ## npm
 
 - [将 Node 包发布到 npm](./npm-publish.md)
+- [使用 TypeScript 编写 npm 包并进行发布](./writing-npm-package-in-typescript.md)
 
 ## 实践
 
