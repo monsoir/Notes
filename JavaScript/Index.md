@@ -51,6 +51,10 @@
     - [构造函数继承](./object-oriented-in-javascript/constructor-inheritance.md)
     - [调用父类方法](./object-oriented-in-javascript/call-super-method.md)
 
+- 模块
+    
+    - [模块模式](./object-oriented-in-javascript/js-module.md)
+
 ## 实践
 
 - [使用 JavaScript 实现笛卡尔积计算](./javascript-cartesian-product.md)
