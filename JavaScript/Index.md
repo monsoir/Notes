@@ -54,6 +54,7 @@
 - 模块
     
     - [模块模式](./object-oriented-in-javascript/js-module.md)
+    - [创建对象的私有属性](./object-oriented-in-javascript/js-instance-private-property.md)
 
 ## 实践
 
