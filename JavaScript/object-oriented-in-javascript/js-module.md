@@ -17,11 +17,11 @@ const aModule = (function() {
   let _variable2 = '';
   
   function getVariable1() {
-    return this._variable1;
+    return _variable1;
   }
   
   function getVariable2() {
-    return this._variable2;
+    return _variable2;
   }
   
   return {
