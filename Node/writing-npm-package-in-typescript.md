@@ -209,8 +209,8 @@ npm i -D mocha @types/mocha chai @types/chai
 
 ```json
 ...
-"main": "index.js",
-"types": "index.d.ts",
+"main": "./dist/index.js",
+"types": "./dist/index.d.ts",
 "scripts": {
   "prepublish": "npm run build",
   "dev": "rm -fr ./dist && tsc -p tsconfig.dev.json",
@@ -219,6 +219,21 @@ npm i -D mocha @types/mocha chai @types/chai
 },
 ...
 ```
+
+- 在 `main` 字段中指定包入口位置，由于编译后的代码都放置在 📁 dist 中，即发布到 npm 的包目录结构如下所示，否则，在引入模块后，无法导入相应的方法，除非根目录下有一个 `index.js` 文件将方法导出
+
+    ```
+    .
+    ├── README.md
+    ├── dist
+    │   ├── TypeOf.d.ts
+    │   ├── TypeOf.js
+    │   ├── index.d.ts
+    │   └── index.js
+    └── package.json
+    ```
+
+- 同时也在 `types` 字段中指定 API 文件的路径
 
 ### 添加忽略文件
 
@@ -245,4 +260,8 @@ npm version patch
 npm version minor
 npm version major
 ```
+
+## 例子
+
+- [params-mapper](https://github.com/Monsoir/params-mapper)
 
