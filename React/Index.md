@@ -78,6 +78,10 @@
 9. integrate-eslint 配置 eslint 语法检测
 10. source-map 配置开发环境下的源代码查看配置
 
+## Tips
+
+- [Babel Tips](./babel-tips/index.md)
+
 ## Common
 
 - [🔧 非一级页面刷新返回 404](./react/refresh-get-404.md)
