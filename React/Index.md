@@ -13,6 +13,7 @@
 - [React 使用 react loadable 进行代码分割实践](./react/react-code-splitting-in-action.md)
 - [React 使用 Context](./react/react-context.md)
 - [React 使用高阶组件 HOC](./react/react-hoc.md)
+- [React + TypeScript + Jest 使用](./react/react-typescript-jest.md)
 
 ### Webpack
 
