@@ -6,7 +6,7 @@
 ## JavaScript
 
 - [Visual Studio Code 配置 React Native 开发环境](./Visual%20Studio%20Code%20配置%20React%20Native%20开发环境.md)
-- [Visual Studio Code 中调试使用 ES6 特性的 Node.js](./Visual%20Studio%20Code%20中调试使用%20ES6%20特性的%20Node.js.md)
+- [Visual Studio Code 中调试使用 ES6 特性的 Node.js](./debug-es6-in-vscode.md)
 - [Visual Studio Code 识别 Webpack 中的 resolve.alias](./vscode-webpack-alias.md)
 - [Visual Studio Code 中 eslint 无法对 Webpack 中的 resolve.alias 进行寻址](./vscode-webpack-alias-eslint-error.md)
 

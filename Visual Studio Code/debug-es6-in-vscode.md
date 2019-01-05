@@ -57,17 +57,27 @@
 ### 安装 Node.js Demo 需要的依赖
 
 ```sh
-npm i -D babel-cli babel-core babel-preset-es2015 babel-preset-stage-2
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
 ```
 
-其中，babel-preset-stage-2 包含了 es6 中关于 import 的语法
+上述命令会安装 babel 的最新版本，所安装的依赖版本如下
+
+```js
+"devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3"
+}
+```
+
+其中，@babel/preset-env 能够足够智能地去转换运行平台中不支持的语法，包括 ES6 中的 `import`
 
 ### 为 package.json 添加运行命令
 
 在 package.json 的 `script` 中，添加下面命令
 
 ```json
-"build": "babel ./src -d ./build",
+"build": "babel ./src -d ./build --source-maps",
 "start": "npm run build && node ./build/index.js",
 ```
 
@@ -81,8 +91,7 @@ npm i -D babel-cli babel-core babel-preset-es2015 babel-preset-stage-2
 ```
 {
     "presets": [
-        "es2015",
-        "stage-2"
+        "@babel/preset-env",
     ]
 }
 ```
@@ -112,6 +121,8 @@ console.log(hello());
 
 #### 尝试直接运行
 
+Node 版本：v10.11.0
+
 ```sh
 node src/index.js
 ```
@@ -119,20 +130,21 @@ node src/index.js
 上述命令后，可以看到控制台的报错
 
 ```
-/Volumes/PIRATE/test2/src/index.js:1(function (exports, require, module, __filename, __dirname) { import hello from './imported';
-                                                              ^^^^^^
+/Users/xxx/Developer/JavaScript/debug-es6-with-babel/src/index.js:1
+(function (exports, require, module, __filename, __dirname) { import hello from './imported';
+                                                                     ^^^^^
 
-SyntaxError: Unexpected token import
-    at createScript (vm.js:74:10)
-    at Object.runInThisContext (vm.js:116:10)
-    at Module._compile (module.js:588:28)
-    at Object.Module._extensions..js (module.js:635:10)
-    at Module.load (module.js:545:32)
-    at tryModuleLoad (module.js:508:12)
-    at Function.Module._load (module.js:500:3)
-    at Function.Module.runMain (module.js:665:10)
-    at startup (bootstrap_node.js:201:16)
-    at bootstrap_node.js:626:3
+SyntaxError: Unexpected identifier
+    at new Script (vm.js:79:7)
+    at createScript (vm.js:251:10)
+    at Object.runInThisContext (vm.js:303:10)
+    at Module._compile (internal/modules/cjs/loader.js:657:28)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:279:19)
 ```
 
 ### 对源文件进行编译
@@ -163,17 +175,20 @@ node build/index.js
 结果
 
 ```
-bogon:test2 Mon$ npm start
+> debug-es6-with-babel@1.0.0 build /Users/xxx/Developer/JavaScript/debug-es6-with-babel
+> babel ./src -d ./build
 
-> test2@1.0.0 start /Volumes/PIRATE/test2
+Successfully compiled 2 files with Babel.
+...$ npm run start
+
+> debug-es6-with-babel@1.0.0 start /Users/xxx/Developer/JavaScript/debug-es6-with-babel
 > npm run build && node ./build/index.js
 
 
-> test2@1.0.0 build /Volumes/PIRATE/test2
+> debug-es6-with-babel@1.0.0 build /Users/xxx/Developer/JavaScript/debug-es6-with-babel
 > babel ./src -d ./build
 
-src/imported.js -> build/imported.js
-src/index.js -> build/index.js
+Successfully compiled 2 files with Babel.
 hello world
 ```
 
@@ -250,6 +265,8 @@ launch.json 配置如下
 
 #### 调试中又一个的问题
 
+💡 以下问题，在 Node v10.11.0, Visual Studio Code Version 1.30.1 下，已经不存在，也许 vscode 团队也在更早版本中修复了这个问题，因此，下面的配置可能是可以忽略的
+
 sourcemap 设置完成之后，我们设置 3 个断点
 
 1. src/index.js
@@ -260,7 +277,7 @@ sourcemap 设置完成之后，我们设置 3 个断点
 
     ![](https://ws4.sinaimg.cn/large/006tKfTcgy1fjwqev0zznj31kw04sdga.jpg)
 
-3. src/imported2.js
+3. src/imported2.js 这里新添加了一个文件
 
     ![](https://ws1.sinaimg.cn/large/006tKfTcgy1fjwqf5sdpsj31kw04agm5.jpg)
 
@@ -345,7 +362,7 @@ The error is a debug adapter bug
 1. 安装需要的依赖
 
     ```sh
-    npm i -D babel-cli babel-core babel-preset-es2015 babel-preset-stage-2
+    npm install --save-dev @babel/core @babel/cli @babel/preset-env
     ```
 
 2. 添加快捷命令(Optional)
@@ -353,7 +370,7 @@ The error is a debug adapter bug
     在 package.json 的 `script` 中，添加下面命令
 
     ```json
-    "build": "babel ./src -d ./build",
+    "build": "babel ./src -d ./build --source-maps",
     "start": "npm run build && node ./build/index.js",
     ```
 
@@ -362,8 +379,7 @@ The error is a debug adapter bug
     ```
     {
         "presets": [
-            "es2015",
-            "stage-2"
+            "@babel/preset-env",
         ]
     }
     ```
@@ -381,10 +397,7 @@ The error is a debug adapter bug
                 "name": "Launch Program",
                 "program": "${workspaceRoot}/build/index.js",
                 "sourceMaps": true,
-                "trace": true,
-                "outFiles": [
-                    "${workspaceRoot}/build/*"
-                ]
+                "trace": true
             },
             {
                 "type": "node",
@@ -396,7 +409,7 @@ The error is a debug adapter bug
     }
     ```
     
-    需要注意的是 `outFiles` 部分
+    ~~需要注意的是 `outFiles` 部分~~
 
 5. 写代码，转译，打断点，调试执行
 
