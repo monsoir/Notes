@@ -27,6 +27,7 @@
 - [React-Redux 异步使用](./react/react-redux-async.md)
 - [在 Chrome 中调试 Redux](./react/react-redux-chrome.md)
 - [React Redux 的组件递归调用](./react/react-redux-recursive.md)
+- [组件被 Redux 包装后，获取组件的引用 ref](./react/get-component-instance-wrapped-by-redux.md)
 
 ### React-Router
 
