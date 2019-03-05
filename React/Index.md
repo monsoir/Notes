@@ -23,6 +23,8 @@
 
 ### React-Redux
 
+- [Redux 概览](./react/redux-intro.md)
+- [Redux 中间件原理](./react/redux-middleware-principle.md)
 - [React-redux 基本要点](./react/react-redux-basic.md)
 - [React-Redux 异步使用](./react/react-redux-async.md)
 - [在 Chrome 中调试 Redux](./react/react-redux-chrome.md)
