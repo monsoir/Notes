@@ -5,4 +5,5 @@
 - [position](./position.md)
 - [圣杯布局的编写](./holy-grail-layout.md)
 - [CSS 浮动](./css-float.md)
+- [CSS 居中](./css-align-center.md)
 
