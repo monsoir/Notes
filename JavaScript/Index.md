@@ -8,6 +8,7 @@
 - [JavaScript 设计模式](./JavaScript-设计模式/index.md)
 - [JavaScript 原型](./JavaScript-prototype.md)
 - [代理 Proxy](./js-proxy.md)
+- [JavaScript 中的任务调度](./js-task-invoke.md)
 - [代码工具库](./codebase.md)
 
 ## 速查列表
