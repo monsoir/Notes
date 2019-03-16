@@ -7,3 +7,7 @@
 - [CSS 浮动](./css-float.md)
 - [CSS 居中](./css-align-center.md)
 
+## 速查
+
+- [选择器符号](./cheat-sheet/css-selector.md)
+
