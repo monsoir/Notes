@@ -62,6 +62,10 @@
     - [创建对象的私有属性](./object-oriented-in-javascript/js-instance-private-property.md)
     - [创建构造函数的私有属性](./object-oriented-in-javascript/js-constructor-private-property.md)
 
+## 未分类
+
+- [函数的定义](./uncategoried/a.md)
+
 ## 实践
 
 - [使用 JavaScript 实现笛卡尔积计算](./javascript-cartesian-product.md)
