@@ -13,6 +13,7 @@
 ## 速查列表
 
 - [JavaScript 的基本类型](./cheat-sheet/js-basic-types.md)
+- [JavaScript 中如何正确比较 0.1 + 0.2 =?= 0.3](./cheat-sheet/js-compare-addition.md)
 
 ## 你不知道的 JavaScript
 
