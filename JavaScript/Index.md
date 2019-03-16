@@ -10,6 +10,10 @@
 - [代理 Proxy](./js-proxy.md)
 - [代码工具库](./codebase.md)
 
+## 速查列表
+
+- [JavaScript 的基本类型](./cheat-sheet/js-basic-types.md)
+
 ## 你不知道的 JavaScript
 
 - [JavaScript 类型转换内置方法](./javascript-built-in-type-coercion.md)
