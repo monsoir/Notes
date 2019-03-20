@@ -10,4 +10,5 @@
 ## 速查
 
 - [选择器符号](./cheat-sheet/css-selector.md)
+- [CSSOM API](./cheat-sheet/cssom-api.md)
 
