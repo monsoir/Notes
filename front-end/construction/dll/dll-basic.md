@@ -189,7 +189,7 @@ module.exports = {
     Uncaught ReferenceError: _dll_reactFamily is not defined
     ```
 
-- 而取消注释后，返现页面正常
+- 而取消注释后，发现页面正常
 
 
 
