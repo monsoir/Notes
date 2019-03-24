@@ -6,7 +6,12 @@
 
 Chrome 上使用 [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US), Safari 上使用 [GitCodeTree](https://safari-extensions.apple.com/details/?id=com.buunguyen.gitcodetree-M3VJH5E8GQ) 配合查看更佳，Chrome 和 Safari 的扩展商店都有得下载
 
-> ~~划掉部分~~为遗留内容，没有~~划掉~~的为当前专注的内容
+> ~~划掉部分~~为遗留内容
+
+目前专注
+
+- [Front End](./front-end/index.md)
+- [iOS](./iOS/index.md)
 
 ## 索引
 
