@@ -1,8 +1,8 @@
 # JavaScript
 
-- [JavaScriptNotes](./JavaScriptNotes.md)
+- ~~[JavaScriptNotes](./JavaScriptNotes.md)~~
 - [this](./this.md)
-- [Promise](./promise.md)
+- ~~[Promise](./promise.md)~~
 - [Babel 基本使用方法](./Babel%20基本使用方法.md)
 - [JavaScript 中改变执行上下文的方法](./JavaScript-function-that-change-context.md)
 - [JavaScript 设计模式](./JavaScript-设计模式/index.md)
@@ -10,6 +10,7 @@
 - [代理 Proxy](./js-proxy.md)
 - [JavaScript 中的任务调度](./js-task-invoke.md)
 - [JavaScript 中字符串的一些认识](./js-string.md)
+- [Promise 实现](./promise-impl/index.md)
 - [代码工具库](./codebase.md)
 
 ## 速查列表
