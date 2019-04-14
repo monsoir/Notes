@@ -2,7 +2,7 @@
 
 ## 阅读
 
-- [官方文档阅读摘要](./guide-reading/index.md)
+- [官方文档阅读摘要](./guide-reading-digest/index.md)
 
 ## 系统相关
 
