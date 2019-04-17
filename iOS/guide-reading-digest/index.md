@@ -44,4 +44,27 @@
     - [KVO 的属性](./operation-kvo.md)
 - [Dispatch Queues](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102-SW1)
     - [基于 GCD 的特点](./gcd-advantages.md)
+    - [Dispatch Queues](./dispatch-queues.md)
+    - [Dispatch Queues 涉及到的技术](./queue-related-tech.md)
+    - [在 GCD 中使用 block 的须知](./tips-for-block-in-gcd.md)
+    - [获取 Global Concurrent Dispatch Queue](./get-global-concurrent-dispatch-queue.md)
+    - [创建 Serial Dispatch Queue](./create-serial-dispatch-queue.md)
+    - [Dispatch Queues 的内存管理](./memory-management-for-dispatch-queue.md)
+    - [在 Queue 中共享数据](./share-data-in-queue.md)
+
+
+## 资源同步
+
+[Synchronization](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/ThreadSafety/ThreadSafety.html#//apple_ref/doc/uid/10000057i-CH8-SW1)
+
+多线程下，维护数据，资源的正确性
+
+- 同步工具
+     - [Atomic Operations](./synchronization-atomic-operations.md)
+     - [Memory Barriers and Volatile Variables](./synchronization-barrier-volatile.md)
+     - [Locks](./synchronization-locks.md)
+     - [Conditions](./synchronization-conditions.md)
+     - Selector Routines
+- [使用锁](./using-locks.md)
+- [使用 Conditions](./using-conditions.md)
 
