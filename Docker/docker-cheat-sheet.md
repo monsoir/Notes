@@ -120,7 +120,7 @@ docker container run -p 8000:3000 -it [image name] /bin/bash
 启动一次性的容器, `rm` 选项，容器运行结束后自动删除容器文件
 
 ```sh
-docker container run -rm -p 8000:3000 -it [image name] /bin/bash
+docker container run --rm -p 8000:3000 -it [image name] /bin/bash
 ```
 
 ### 停止
