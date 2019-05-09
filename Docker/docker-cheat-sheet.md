@@ -16,6 +16,14 @@ docker info
 sudo usermod -aG docker [user]
 ```
 
+或者
+
+```sh
+sudo usermod -aG docker $USER
+```
+
+`$USER` 可以读取当前的用户，把 docker 添加到当前的用户组，这需要当前的用户处于超级管理员用户组中了
+
 ## 概念
 
 ### image
