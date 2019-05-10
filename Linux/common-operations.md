@@ -28,6 +28,12 @@ sudo adduser <username> sudo
 sudo usermod -aG <group-name> <user-name>
 ```
 
+## 将用户从某个用户组中移除
+
+```sh
+sudo deluser <username> <group-name>
+```
+
 ## 远程文件传输
 
 ```sh
