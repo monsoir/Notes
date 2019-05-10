@@ -5,4 +5,6 @@
 - [解决 ssh 登陆 Github 失败问题](./ssh-github-failure-correction.md)
 - [Ubuntu 上搭建 Git 服务器](./ubuntu-setup-git.md)
 - [管理多个 Git 账号](./manage-multi-git-account.md)
+- [Git hooks](./git-hooks.md)
+- [使用 git hooks 例子](./example-to-use-git-hooks.md)
 
