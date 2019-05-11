@@ -205,7 +205,7 @@ docker image push [username]/[repository]:[tag]
 
 ```dockerfile
 FROM node:8.4 # 使用官方的 Node image, 标签为 8.4
-COPY ./app # 将当前目录下的所有文件（除 .dockerignore 中指明的），复制到 image 文件中的 /app 目录中
+COPY ./app # 将当前目录下的所有文件（除 .dockerignore 中指明的），复制到 image 文件中的 /app 目录中，⚠️，$1 参数指的是本地环境的文件，并采用相对路径，$2 参数表示的是 Docker 镜像中的绝对路径
 WORKDIR /app # 指定工作目录
 RUN npm install # 在 /app 下，运行 npm install 安装依赖，运行所有依赖并打包到 image 中
 EXPOSE 3000 # 将容器的 3000 端口暴露出来，允许外部连接到这个端口
