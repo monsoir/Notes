@@ -11,7 +11,7 @@
 
 ## 密钥管理
 
-类 Unix 系统中，公钥保存在 `~/.ssh/authorized_keys` 文件夹中
+类 Unix 系统中，公钥保存在 `~/.ssh/authorized_keys` 文件中，多个公钥时，每个公钥占一行
 
 ## References
 
