@@ -165,9 +165,31 @@ sudo docker run -it --rm --network container:redis-authed-container redis redis-
 
 ☑️ 说明指定 Redis 的数据持久化保存路径也可以了
 
+## 补充
+
+完成上述操作后，通过容器去访问是可以访问到部署在容器的 Redis. 但通过自己开发的 Web 应用去访问，或者说，通过宿主机访问时，却不能访问到
+
+这对这种情况，各种 StackOverflow 中的解决方法好像都不能解决这个问题，例如：
+
+- 将 Redis 配置中的 `bind` 改成 `0.0.0.0` 或者注释 `bind` 设置，让 Redis 自动监听所有入口 🤨
+- 将宿主机的端口映射到容器中 Redis 监听的端口，如 6379, 但是，这个一开始就有做了 🤨
+- 将 Web 应用连接容器 Redis 服务的 IP 改为从 Docker 中获取的 IP, 如 `172.17.0.4`, 而不是 `127.0.0.1` 🤨
+
+通过 [redis部署在docker容器中Could not connect to Redis ](https://www.cnblogs.com/wangdaijun/p/9449759.html) 里面所说的，在 Redis 配置文件中的 `bind`, 添加从 Docker 中获取到 Redis 的模拟 IP, 如 `172.17.0.4`, 通过实践，这种方法的效果是
+
+- 保持了原有容器中 Redis 监听的 `127.0.0.1`, 同时又可以让 Redis 访问可访问。即将 Redis 服务完全限制在内网中，而不需要暴露到外网中，完成配置是
+
+    ```sh
+    bind 127.0.0.1 172.17.0.4
+    ```
+
+- 同时，`protected-mode` 配置可以维持原来的 `yes` 设置
+- Web 应用中连接 Redis 服务的 IP 可以改为固定的 `127.0.0.1`, 只要 Web 应用与 Redis 服务在同一个服务器上（没什么资金，只有一台服务器就这样做了 😭）
 
 ## References
 
 - [获取容器在物理机上的 IP 地址](https://www.notion.so/Kvasir-book-query-proxy-4af87e9861444964b2065eceab807fe0#1331744d320d47dda7cc74b2b0180fe3)
 - [同一台物理机上，不同容器之间的关系](https://www.notion.so/Kvasir-book-query-proxy-4af87e9861444964b2065eceab807fe0#eba469e1b412467789e53c1122b0a532)
+- [redis部署在docker容器中Could not connect to Redis ](https://www.cnblogs.com/wangdaijun/p/9449759.html)
+
 
