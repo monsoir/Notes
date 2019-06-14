@@ -19,6 +19,7 @@
 
 - [RunLoop](./RunLoop.md)
 - [线程保活](./keep-thread-alive.md)
+- [抢救应用](./rescue-app.md)
 
 ### 线程
 
