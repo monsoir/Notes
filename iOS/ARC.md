@@ -96,16 +96,23 @@ objc_release(obj);
 
 #### weak 表
 
-- 使用 **散列表** 实现，与 计数引用表相同
-- 根据 objc_storeWeak 的函数叙述
-
+- 使用 **散列表** 实现，与 计数引用表相同，weak 表：
 
 	key | value
 	--- | ---
-	实际上的对象的地址 | __weak 修饰的变量的地址
+	实际上的对象的地址 | __weak 修饰的变量的地址（可有多个，可能用集合或字典实现）
 
-- 当 key 为 0 时，通过散列表的特性，可以快速获取到所有 __weak 对象的地址，并全部置 nil
-	- 如何快速地获取到所有 __weak 对象地址？可看作，当 hash 到同一个 key 的时候，把 value 用一个链表进行管理，因此置 nil 的时候，只需要把链表中的全部对象置 nil
+- 根据 `objc_storeWeak(&weakRef, realObject)` 的函数叙述
+
+    - 当 key 为一个实际对象(realObject)时
+        1. 函数拿到 realObject 的地址，并以该地址作为 key, 创建或找出对应的键值对
+        2. 拿到 weakRef 的地址，并添加到 value 这个散列表中
+
+    - 当 key 为 0 时，表示该 weakRef 要被置 nil
+
+    - 当 realObject 要被释放时
+        1. 通过散列表的特性，根据 realObject 的地址，从 weak 表可以快速获取到所有 __weak 对象的地址
+        2. 对找到的每一个 weakRef, 调用 `objc_storeWeak(&weakRef, 0)`
 
 #### 对象释放的过程
 
@@ -119,6 +126,8 @@ objc_release(obj);
 	2. 将 weak 记录中所有变量置为 nil
 	3. 从 weak 表中删除对象
 	4. 从引用计数表中删除以该对象地址为键值的记录
+
+**由于为 weak 表的弱指针置空包含了赋值操作，因此，若存在大量的 weak 指向，释放对象时，将会消耗大量的 CPU 资源**，因此，只应该在需要避免循环引用的情况才使用
 
 #### 实例
 
